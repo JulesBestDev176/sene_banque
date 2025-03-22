@@ -123,7 +123,35 @@
                                     <Label text="Adresse" styleClass="label-champ" />
                                     <TextArea fx:id="adresseField" promptText="Entrez l'adresse complète" styleClass="champ-form" prefHeight="80" wrapText="true" />
                                 </VBox>
+
                             </GridPane>
+                            <!-- Ajoutez une section pour les informations du compte initial -->
+                            <VBox spacing="10" styleClass="section-compte-initial">
+                                <Label text="Informations du compte initial" styleClass="section-titre">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+
+                                <GridPane hgap="20" vgap="15" styleClass="grille-form">
+                                    <columnConstraints>
+                                        <ColumnConstraints percentWidth="48" />
+                                        <ColumnConstraints percentWidth="48" />
+                                    </columnConstraints>
+
+                                    <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                        <Label text="Type de Compte *" styleClass="label-champ" />
+                                        <ComboBox fx:id="typeCompteField" promptText="Sélectionnez un type de compte" styleClass="champ-form" prefWidth="400" />
+                                        <Label fx:id="labelFraisBancaire" text="Frais bancaires: " styleClass="info-frais" />
+                                    </VBox>
+
+                                    <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                        <Label text="Solde initial (FCFA) *" styleClass="label-champ" />
+                                        <TextField fx:id="soldeInitialField" promptText="Entrez le solde initial" styleClass="champ-form" />
+                                        <Label text="Doit être supérieur aux frais bancaires" styleClass="info-contrainte" />
+                                    </VBox>
+                                </GridPane>
+                            </VBox>
 
                             <HBox spacing="15" alignment="CENTER_RIGHT" styleClass="actions-form">
                                 <Button fx:id="btnReinitialiser" text="Réinitialiser" styleClass="bouton-secondaire">

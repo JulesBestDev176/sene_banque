@@ -3,6 +3,7 @@ package com.isi.senebanque.controllers.admin;
 import com.isi.senebanque.dtos.requests.client.ClientRequestDTO;
 import com.isi.senebanque.dtos.responses.client.ClientResponseDTO;
 import com.isi.senebanque.services.ClientService;
+import com.isi.senebanque.services.CompteService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -54,6 +55,12 @@ public class ClientController implements Initializable {
     private Button btnRafraichir;
     @FXML
     private Label infoPage;
+    @FXML
+    private ComboBox<String> typeCompteField;
+    @FXML
+    private TextField soldeInitialField;
+    @FXML
+    private Label labelFraisBancaire;
 
     @FXML
     private TextField nomField;
@@ -85,6 +92,15 @@ public class ClientController implements Initializable {
 
         filtreStatut.setItems(FXCollections.observableArrayList("Tous", "Actif", "Inactif"));
         filtreStatut.setValue("Tous");
+
+        typeCompteField.getItems().addAll(CompteService.TYPE_COMPTE_COURANT, CompteService.TYPE_COMPTE_EPARGNE);
+        typeCompteField.setValue(CompteService.TYPE_COMPTE_COURANT);
+
+        updateFraisBancaireLabel(CompteService.TYPE_COMPTE_COURANT);
+
+        typeCompteField.valueProperty().addListener((obs, oldVal, newVal) -> {
+            updateFraisBancaireLabel(newVal);
+        });
 
         configurerColonnesTable();
 
@@ -186,6 +202,14 @@ public class ClientController implements Initializable {
         });
     }
 
+    private void updateFraisBancaireLabel(String typeCompte) {
+        double frais = typeCompte.equals(CompteService.TYPE_COMPTE_EPARGNE)
+                ? 0
+                : 1000;
+
+        labelFraisBancaire.setText("Frais bancaires: " + frais + " FCFA");
+    }
+
     private void actualiserTableauParPage(int pageIndex) {
         int fromIndex = pageIndex * ITEMS_PAR_PAGE;
         int toIndex = Math.min(fromIndex + ITEMS_PAR_PAGE, listeClientsFiltree.size());
@@ -276,9 +300,32 @@ public class ClientController implements Initializable {
         String email = emailField.getText().trim();
         String telephone = telephoneField.getText().trim();
         String adresse = adresseField.getText().trim();
+        String typeCompte = typeCompteField.getValue();
 
+        // Valider les champs obligatoires du client
         if (nom.isEmpty() || prenom.isEmpty() || email.isEmpty() || telephone.isEmpty()) {
-            afficherMessage("Champs manquants", "Veuillez remplir tous les champs obligatoires.", AlertType.WARNING);
+            afficherMessage("Champs manquants", "Veuillez remplir tous les champs obligatoires du client.", AlertType.WARNING);
+            return;
+        }
+
+        // Validation du solde initial
+        double soldeInitial;
+        try {
+            soldeInitial = Double.parseDouble(soldeInitialField.getText().trim().replace(" ", ""));
+        } catch (NumberFormatException e) {
+            afficherMessage("Erreur de saisie", "Le solde initial doit être un nombre valide.", AlertType.WARNING);
+            return;
+        }
+
+        // Vérification du montant minimum
+        double fraisBancaire = typeCompte.equals(CompteService.TYPE_COMPTE_EPARGNE)
+                ? 0
+                : 1000;
+
+        if (soldeInitial <= fraisBancaire) {
+            afficherMessage("Solde insuffisant",
+                    "Le solde initial doit être supérieur à " + fraisBancaire + " FCFA pour couvrir les frais bancaires.",
+                    AlertType.WARNING);
             return;
         }
 
@@ -293,6 +340,7 @@ public class ClientController implements Initializable {
 
         try {
             if (modeEdition && clientIdEnEdition != null) {
+                // Logique de modification existante
                 System.out.println("Modification du client ID: " + clientIdEnEdition);
                 resultat = clientService.modifierClient(clientIdEnEdition, clientRequest);
                 if (resultat != null) {
@@ -302,12 +350,17 @@ public class ClientController implements Initializable {
                     return;
                 }
             } else {
-                System.out.println("Ajout d'un nouveau client");
-                resultat = clientService.ajouterClient(clientRequest);
+                // Ajout d'un nouveau client avec compte
+                System.out.println("Ajout d'un nouveau client avec compte " + typeCompte);
+
+                resultat = clientService.ajouterClientAvecCompte(clientRequest, typeCompte, soldeInitial);
+
                 if (resultat != null) {
-                    afficherMessage("Client ajouté", "Le client a été ajouté avec succès.", AlertType.INFORMATION);
+                    afficherMessage("Client et compte créés",
+                            "Le client a été ajouté avec succès et un compte " + typeCompte + " a été créé automatiquement.",
+                            AlertType.INFORMATION);
                 } else {
-                    afficherMessage("Erreur", "Erreur lors de l'ajout du client. Vérifiez les données saisies.", AlertType.ERROR);
+                    afficherMessage("Erreur", "Erreur lors de l'ajout du client ou de la création du compte. Vérifiez les données saisies.", AlertType.ERROR);
                     return;
                 }
             }
@@ -320,6 +373,8 @@ public class ClientController implements Initializable {
             afficherMessage("Erreur", "Une erreur est survenue: " + e.getMessage(), AlertType.ERROR);
         }
     }
+
+
 
     private void editerClient(ClientResponseDTO client) {
         modeEdition = true;
@@ -397,8 +452,13 @@ public class ClientController implements Initializable {
         });
     }
 
+
+
     private void reinitialiserFormulaire() {
         System.out.println("Réinitialisation du formulaire");
+        typeCompteField.setValue(CompteService.TYPE_COMPTE_COURANT);
+        soldeInitialField.clear();
+        updateFraisBancaireLabel(CompteService.TYPE_COMPTE_COURANT);
 
         nomField.clear();
         prenomField.clear();
