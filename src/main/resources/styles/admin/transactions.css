@@ -1,0 +1,415 @@
+/* Styles généraux de la page transactions */
+.transactions-container {
+    -fx-background-color: #f5f6fa;
+}
+
+/* En-tête */
+.en-tete {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #e9ecef transparent;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.titre-page {
+    -fx-text-fill: #333333;
+}
+
+.bouton-profil {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+}
+
+.avatar-mini-container {
+    -fx-background-color: #f0f2f5;
+    -fx-background-radius: 50%;
+    -fx-min-width: 30px;
+    -fx-min-height: 30px;
+    -fx-max-width: 30px;
+    -fx-max-height: 30px;
+    -fx-alignment: center;
+}
+
+.avatar-mini-icon {
+    -fx-fill: #555555;
+    -fx-font-size: 14px;
+}
+
+/* Contenu principal */
+.contenu-principal {
+    -fx-background-color: transparent;
+}
+
+/* Styles des onglets */
+.onglets-container {
+    -fx-background-color: transparent;
+}
+
+.onglets-container .tab-header-area .tab-header-background {
+    -fx-background-color: transparent;
+}
+
+.onglets-container .tab {
+    -fx-background-color: transparent;
+    -fx-padding: 10px 15px;
+}
+
+.onglets-container .tab:selected {
+    -fx-background-color: white;
+    -fx-background-radius: 5 5 0 0;
+}
+
+.onglets-container .tab-label {
+    -fx-text-fill: #555555;
+    -fx-font-size: 14px;
+}
+
+.onglets-container .tab:selected .tab-label {
+    -fx-text-fill: #0062cc;
+    -fx-font-weight: bold;
+}
+
+.onglets-container .tab-content-area {
+    -fx-background-color: white;
+    -fx-background-radius: 0 5 5 5;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 8, 0, 0, 2);
+}
+
+/* Statistiques */
+.statistiques-container {
+    -fx-padding: 0 0 10px 0;
+}
+
+.stat-box {
+    -fx-background-color: white;
+    -fx-border-color: #e9ecef;
+    -fx-border-radius: 5px;
+    -fx-padding: 15px;
+    -fx-spacing: 5;
+    -fx-alignment: center-left;
+    -fx-min-width: 200px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 4, 0, 0, 1);
+    -fx-hgrow: always;
+    -fx-position: relative;
+}
+
+.stat-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #6c757d;
+}
+
+.stat-value {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #343a40;
+}
+
+.stat-icon {
+    -fx-fill: #6c757d;
+    -fx-font-size: 22px;
+    -fx-opacity: 0.7;
+    -fx-translate-x: 140;
+    -fx-translate-y: -20;
+}
+
+.statut-valide-text {
+    -fx-text-fill: #28a745;
+}
+
+.statut-rejete-text {
+    -fx-text-fill: #dc3545;
+}
+
+.montant-text {
+    -fx-text-fill: #17a2b8;
+}
+
+.valide-icon {
+    -fx-fill: #28a745;
+}
+
+.rejete-icon {
+    -fx-fill: #dc3545;
+}
+
+.montant-icon {
+    -fx-fill: #17a2b8;
+}
+
+/* Liste des transactions */
+.actions-liste {
+    -fx-padding: 15px;
+}
+
+.champ-recherche {
+    -fx-background-color: #f0f2f5;
+    -fx-background-radius: 5px;
+    -fx-padding: 8px 15px;
+    -fx-prompt-text-fill: #888888;
+}
+
+.filtre-combo {
+    -fx-background-color: #f0f2f5;
+    -fx-background-radius: 5px;
+    -fx-padding: 7px;
+    -fx-min-width: 150px;
+}
+
+.bouton-action {
+    -fx-padding: 8px 15px;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.bouton-rafraichir {
+    -fx-background-color: #0062cc;
+    -fx-text-fill: white;
+}
+
+.bouton-rafraichir:hover {
+    -fx-background-color: #0056b3;
+}
+
+.icone-bouton {
+    -fx-fill: white;
+    -fx-font-size: 12px;
+}
+
+/* Table des transactions */
+.table-transactions {
+    -fx-background-color: transparent;
+    -fx-border-color: #e0e3e8;
+    -fx-border-radius: 5px;
+}
+
+.table-transactions .column-header {
+    -fx-background-color: #f0f2f5;
+    -fx-padding: 10px;
+}
+
+.table-transactions .column-header .label {
+    -fx-text-fill: #555555;
+    -fx-font-weight: bold;
+}
+
+.table-transactions .table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #f0f2f5 transparent;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.table-transactions .table-row-cell:selected {
+    -fx-background-color: #e6f2ff;
+}
+
+/* Badge de statut */
+.badge-statut {
+    -fx-padding: 3px 8px;
+    -fx-background-radius: 12px;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+}
+
+.statut-valide {
+    -fx-background-color: rgba(40, 167, 69, 0.2);
+    -fx-text-fill: #28a745;
+}
+
+.statut-rejete {
+    -fx-background-color: rgba(220, 53, 69, 0.2);
+    -fx-text-fill: #dc3545;
+}
+
+/* Pagination */
+.pagination-container {
+    -fx-padding: 15px;
+}
+
+.info-pagination {
+    -fx-text-fill: #666666;
+    -fx-font-size: 13px;
+}
+
+.pagination-transactions .pagination-control {
+    -fx-background-color: transparent;
+}
+
+.pagination-transactions .pagination-control .button {
+    -fx-background-color: #f0f2f5;
+    -fx-background-radius: 5px;
+}
+
+.pagination-transactions .pagination-control .button:hover {
+    -fx-background-color: #e0e3e8;
+}
+
+.pagination-transactions .pagination-control .number-button:selected {
+    -fx-background-color: #0062cc;
+    -fx-text-fill: white;
+}
+
+/* Formulaire */
+.form-scroll {
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+}
+
+.form-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.form-container {
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 8, 0, 0, 2);
+}
+
+.form-titre {
+    -fx-text-fill: #333333;
+    -fx-padding: 0 0 10 0;
+}
+
+.grille-form {
+    -fx-padding: 10px 0;
+}
+
+.label-champ {
+    -fx-text-fill: #444444;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+}
+
+.champ-form {
+    -fx-background-color: #f0f2f5;
+    -fx-background-radius: 5px;
+    -fx-padding: 8px 15px;
+    -fx-prompt-text-fill: #888888;
+}
+
+/* Type de transaction */
+.type-transaction-container {
+    -fx-padding: 10px 0;
+}
+
+.radio-depot, .radio-retrait {
+    -fx-font-size: 14px;
+    -fx-spacing: 5;
+}
+
+.icon-depot {
+    -fx-fill: #28a745;
+    -fx-font-size: 14px;
+}
+
+.icon-retrait {
+    -fx-fill: #dc3545;
+    -fx-font-size: 14px;
+}
+
+/* Montant */
+.montant-container {
+    -fx-alignment: center;
+}
+
+.montant-field {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.montant-currency {
+    -fx-background-color: #ecf0f1;
+    -fx-background-radius: 0 5px 5px 0;
+    -fx-padding: 8px 15px;
+    -fx-text-fill: #7f8c8d;
+    -fx-font-weight: bold;
+    -fx-border-color: #e0e5eb;
+    -fx-border-radius: 0 5px 5px 0;
+}
+
+.info-solde {
+    -fx-text-fill: #0062cc;
+    -fx-font-size: 13px;
+    -fx-padding: 5px 0 0 0;
+    -fx-font-weight: bold;
+}
+
+.actions-form {
+    -fx-padding: 15px 0;
+}
+
+.bouton-secondaire {
+    -fx-background-color: #e0e3e8;
+    -fx-text-fill: #555555;
+    -fx-padding: 8px 15px;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.bouton-secondaire:hover {
+    -fx-background-color: #d0d3d8;
+}
+
+.bouton-secondaire .icone-bouton {
+    -fx-fill: #555555;
+}
+
+.bouton-primaire {
+    -fx-background-color: #0062cc;
+    -fx-text-fill: white;
+    -fx-padding: 8px 15px;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.bouton-primaire:hover {
+    -fx-background-color: #0056b3;
+}
+
+/* Styles adaptatives */
+@media screen and (max-width: 800px) {
+    .titre-page {
+        -fx-font-size: 20px;
+    }
+
+    .statistiques-container {
+        -fx-wrap: true;
+    }
+
+    .stat-box {
+        -fx-min-width: 45%;
+    }
+
+    .actions-liste {
+        -fx-padding: 10px;
+    }
+
+    .filtre-combo {
+        -fx-min-width: 120px;
+    }
+
+    .table-transactions .column-header {
+        -fx-padding: 8px;
+    }
+
+    .table-transactions .column-header .label {
+        -fx-font-size: 12px;
+    }
+
+    .pagination-container {
+        -fx-padding: 10px;
+    }
+
+    .form-container {
+        -fx-padding: 15px;
+    }
+
+    .grille-form {
+        -fx-hgap: 10px;
+        -fx-vgap: 10px;
+    }
+
+    .bouton-primaire, .bouton-secondaire {
+        -fx-padding: 6px 12px;
+        -fx-font-size: 12px;
+    }
+}

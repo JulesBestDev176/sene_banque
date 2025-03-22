@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.isi.senebanque.controllers.client.TransactionController"
+            stylesheets="@../../../../styles/client/transactions.css"
+            styleClass="operations-container">
+
+    <top>
+        <VBox styleClass="header-section">
+            <Label text="Mes Opérations" styleClass="page-title">
+                <font>
+                    <Font name="System Bold" size="24.0" />
+                </font>
+            </Label>
+            <padding>
+                <Insets top="20.0" right="30.0" bottom="10.0" left="30.0" />
+            </padding>
+        </VBox>
+    </top>
+
+    <center>
+        <TabPane styleClass="operations-tab-pane">
+            
+            <Tab text="Historique des transactions" closable="false">
+                <VBox spacing="15" styleClass="tab-content">
+                    <TableView fx:id="tableTransactions" VBox.vgrow="ALWAYS" styleClass="transactions-table">
+                        <columns>
+                            <TableColumn fx:id="colDate" text="Date" prefWidth="100" />
+                            <TableColumn fx:id="colNumero" text="Numéro" prefWidth="150" />
+                            <TableColumn fx:id="colType" text="Type" prefWidth="100" />
+                            <TableColumn fx:id="colMontant" text="Montant" prefWidth="120" />
+                            <TableColumn fx:id="colCompteSource" text="Compte source" prefWidth="150" />
+                            <TableColumn fx:id="colCompteDest" text="Compte destination" prefWidth="150" />
+                            <TableColumn fx:id="colStatut" text="Statut" prefWidth="100" />
+                        </columns>
+                        <placeholder>
+                            <Label text="Aucune transaction trouvée" />
+                        </placeholder>
+                    </TableView>
+                    <padding>
+                        <Insets top="15" right="20" bottom="20" left="20" />
+                    </padding>
+                </VBox>
+            </Tab>
+
+            
+            <Tab text="Effectuer un virement" closable="false">
+                <VBox spacing="20" styleClass="tab-content">
+                    <GridPane hgap="20" vgap="15">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="30" />
+                            <ColumnConstraints percentWidth="70" />
+                        </columnConstraints>
+
+                        
+                        <Label text="Compte source :" styleClass="form-label"
+                               GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <ComboBox fx:id="comboCompteSource" promptText="Sélectionnez un compte"
+                                  GridPane.columnIndex="1" GridPane.rowIndex="0" maxWidth="Infinity" />
+
+                        
+                        <Label text="Solde :" styleClass="form-label"
+                               GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <Label fx:id="lblSoldeDisponible" text="Solde disponible: -" styleClass="solde-label"
+                               GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                        
+                        <Label text="Compte destination :" styleClass="form-label"
+                               GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="comboCompteDestination" promptText="Sélectionnez un compte"
+                                  GridPane.columnIndex="1" GridPane.rowIndex="2" maxWidth="Infinity" />
+
+                        
+                        <Label text="Montant (FCFA) :" styleClass="form-label"
+                               GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                        <TextField fx:id="champMontant" promptText="Entrez le montant"
+                                   GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                    </GridPane>
+
+                    
+                    <Label fx:id="lblMessageErreur" styleClass="error-message" />
+
+                    
+                    <HBox alignment="CENTER_RIGHT" spacing="15">
+                        <Button text="Effectuer le virement" styleClass="virement-button" onAction="#effectuerVirement">
+                            <graphic>
+                                <FontAwesomeIconView glyphName="EXCHANGE" styleClass="button-icon" />
+                            </graphic>
+                        </Button>
+                    </HBox>
+
+                    
+                    <VBox styleClass="info-box">
+                        <Label text="Informations sur les virements" styleClass="info-title" />
+                        <Label text="• Les virements entre comptes sont gratuits" styleClass="info-text" />
+                        <Label text="• Les virements sont instantanés" styleClass="info-text" />
+                        <Label text="• Le montant minimum d'un virement est de 1000 FCFA" styleClass="info-text" />
+                        <Label text="• Vous devez disposer d'un solde suffisant sur votre compte source" styleClass="info-text" />
+                    </VBox>
+
+                    <padding>
+                        <Insets top="20" right="30" bottom="30" left="30" />
+                    </padding>
+                </VBox>
+            </Tab>
+        </TabPane>
+    </center>
+</BorderPane>

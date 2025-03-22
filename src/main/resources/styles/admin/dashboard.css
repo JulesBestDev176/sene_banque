@@ -1,0 +1,355 @@
+/* Styles généraux du tableau de bord */
+.tableau-bord-container {
+    -fx-background-color: #f5f6fa;
+}
+
+/* En-tête */
+.en-tete {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #e9ecef transparent;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.titre-page {
+    -fx-text-fill: #333333;
+}
+
+.bouton-notification, .bouton-profil {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+}
+
+.icone-notification {
+    -fx-fill: #616777;
+    -fx-font-size: 16px;
+}
+
+.badge-notification {
+    -fx-background-color: #ff5252;
+    -fx-text-fill: white;
+    -fx-font-size: 10px;
+    -fx-padding: 2px 5px;
+    -fx-background-radius: 50%;
+    -fx-translate-x: 8;
+    -fx-translate-y: -8;
+}
+
+.avatar-mini-container {
+    -fx-background-color: #f0f2f5;
+    -fx-background-radius: 50%;
+    -fx-min-width: 30px;
+    -fx-min-height: 30px;
+    -fx-max-width: 30px;
+    -fx-max-height: 30px;
+    -fx-alignment: center;
+}
+
+.avatar-mini-icon {
+    -fx-fill: #555555;
+    -fx-font-size: 14px;
+}
+
+.chevron-icon {
+    -fx-fill: #777777;
+    -fx-font-size: 12px;
+}
+
+/* Contenu principal */
+.contenu-scroll {
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+}
+
+.contenu-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.contenu-principal {
+    -fx-background-color: transparent;
+    -fx-padding: 25 0 0 0;
+}
+
+/* Styles des cartes */
+.carte {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 8, 0, 0, 2);
+    -fx-padding: 20px;
+}
+
+.carte-header {
+    -fx-padding: 0 0 15 0;
+    -fx-alignment: center;
+}
+
+.carte-titre-large {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+/* Cartes d'aperçu */
+.cartes-apercu-container {
+    -fx-alignment: center;
+}
+
+.cartes-apercu-container > .carte {
+    -fx-pref-width: 250px;
+    -fx-min-height: 100px;
+}
+
+.icone-container {
+    -fx-background-radius: 10px;
+    -fx-min-width: 45px;
+    -fx-min-height: 45px;
+    -fx-max-width: 45px;
+    -fx-max-height: 45px;
+    -fx-alignment: center;
+}
+
+.icone-clients-container {
+    -fx-background-color: rgba(0, 98, 204, 0.1);
+}
+
+.icone-comptes-container {
+    -fx-background-color: rgba(76, 175, 80, 0.1);
+}
+
+.icone-transactions-container {
+    -fx-background-color: rgba(255, 152, 0, 0.1);
+}
+
+.icone-credits-container {
+    -fx-background-color: rgba(156, 39, 176, 0.1);
+}
+
+.icone-carte {
+    -fx-font-size: 18px;
+}
+
+.carte-clients .icone-carte {
+    -fx-fill: #0062cc;
+}
+
+.carte-comptes .icone-carte {
+    -fx-fill: #4caf50;
+}
+
+.carte-transactions .icone-carte {
+    -fx-fill: #ff9800;
+}
+
+.carte-credits .icone-carte {
+    -fx-fill: #9c27b0;
+}
+
+.carte-titre {
+    -fx-font-size: 13px;
+    -fx-text-fill: #666666;
+}
+
+.carte-valeur {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+.carte-details {
+    -fx-font-size: 12px;
+    -fx-text-fill: #888888;
+}
+
+/* Actions rapides */
+.actions-container {
+    -fx-alignment: center;
+}
+
+.action-btn {
+    -fx-background-color: #f8f9fa;
+    -fx-background-radius: 10px;
+    -fx-min-width: 120px;
+    -fx-min-height: 100px;
+    -fx-cursor: hand;
+}
+
+.action-btn:hover {
+    -fx-background-color: #e9ecef;
+}
+
+.action-icon {
+    -fx-fill: #0062cc;
+    -fx-font-size: 24px;
+}
+
+.action-label {
+    -fx-text-fill: #333333;
+    -fx-font-size: 13px;
+}
+
+/* Table des opérations */
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-color: #e0e3e8;
+    -fx-border-radius: 5px;
+}
+
+.table-view .column-header {
+    -fx-background-color: #f0f2f5;
+    -fx-padding: 10px;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #555555;
+    -fx-font-weight: bold;
+}
+
+.table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #f0f2f5 transparent;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #e6f2ff;
+}
+
+/* Tickets support */
+.liste-tickets {
+    -fx-padding: 5 0 0 0;
+}
+
+.ticket-item {
+    -fx-padding: 15px;
+    -fx-spacing: 10px;
+    -fx-background-radius: 8px;
+}
+
+.ticket-urgent {
+    -fx-background-color: rgba(244, 67, 54, 0.08);
+    -fx-border-color: #f44336;
+    -fx-border-width: 0 0 0 3px;
+}
+
+.ticket-moyen {
+    -fx-background-color: rgba(255, 152, 0, 0.08);
+    -fx-border-color: #ff9800;
+    -fx-border-width: 0 0 0 3px;
+}
+
+.ticket-faible {
+    -fx-background-color: rgba(33, 150, 243, 0.08);
+    -fx-border-color: #2196f3;
+    -fx-border-width: 0 0 0 3px;
+}
+
+.icone-ticket {
+    -fx-font-size: 16px;
+}
+
+.icone-urgent {
+    -fx-fill: #f44336;
+}
+
+.icone-moyen {
+    -fx-fill: #ff9800;
+}
+
+.icone-faible {
+    -fx-fill: #2196f3;
+}
+
+.ticket-titre {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+.ticket-client {
+    -fx-font-size: 13px;
+    -fx-text-fill: #555555;
+}
+
+.ticket-date {
+    -fx-font-size: 12px;
+    -fx-text-fill: #777777;
+}
+
+.ticket-priorite {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 3px 8px;
+    -fx-background-radius: 12px;
+}
+
+.urgent {
+    -fx-background-color: rgba(244, 67, 54, 0.2);
+    -fx-text-fill: #f44336;
+}
+
+.moyen {
+    -fx-background-color: rgba(255, 152, 0, 0.2);
+    -fx-text-fill: #ff9800;
+}
+
+.faible {
+    -fx-background-color: rgba(33, 150, 243, 0.2);
+    -fx-text-fill: #2196f3;
+}
+
+.ticket-action {
+    -fx-text-fill: #0062cc;
+    -fx-font-size: 12px;
+    -fx-border-color: transparent;
+}
+
+/* Filtre et sélecteur */
+.filtre-selection {
+    -fx-background-color: #f5f6fa;
+    -fx-border-color: #e0e3e8;
+    -fx-border-radius: 5px;
+    -fx-font-size: 12px;
+}
+
+.lien-voir-tout {
+    -fx-text-fill: #0062cc;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-border-color: transparent;
+}
+
+/* Demandes en attente */
+.demandes-container {
+    -fx-alignment: center;
+}
+
+.demande-categorie {
+    -fx-background-color: #f8f9fa;
+    -fx-background-radius: 8px;
+    -fx-padding: 15px;
+    -fx-spacing: 10px;
+    -fx-pref-width: 33%;
+    -fx-alignment: center;
+}
+
+.demande-categorie-titre {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+.liste-demandes {
+    -fx-background-color: transparent;
+    -fx-border-color: #e0e3e8;
+    -fx-border-radius: 5px;
+}
+
+.liste-demandes .list-cell {
+    -fx-background-color: white;
+    -fx-padding: 10px;
+    -fx-border-color: transparent transparent #f0f2f5 transparent;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.liste-demandes .list-cell:hover {
+    -fx-background-color: #f0f2f5;
+}

@@ -1,0 +1,32 @@
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence" version="3.0">
+    <persistence-unit name="seneBanquePU" transaction-type="RESOURCE_LOCAL">
+        <!--<class>com.isi.ma_banque.models.CarteBancaire</class>
+
+        <class>com.isi.ma_banque.models.Compte</class>
+        <class>com.isi.ma_banque.models.Credit</class>
+        <class>com.isi.ma_banque.models.FraisBancaire</class>
+        <class>com.isi.ma_banque.models.Remboursement</class>
+        <class>com.isi.ma_banque.models.TicketSupport</class>
+        <class>com.isi.ma_banque.models.Transaction</class>
+        <class>com.isi.ma_banque.models.User</class>-->
+        <class>com.isi.senebanque.models.Client</class>
+        <class>com.isi.senebanque.models.Admin</class>
+
+        <!-- Ajoutez ici toutes vos entités -->
+
+        <properties>
+            <!-- Configuration de la base de données PostgreSQL -->
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/senebanque" />
+            <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver" />
+            <property name="jakarta.persistence.jdbc.user" value="postgres" />
+            <property name="jakarta.persistence.jdbc.password" value="okok" />
+
+            <!-- Hibernate comme fournisseur JPA -->
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+
+            <!-- Logs SQL -->
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+        </properties>
+    </persistence-unit>
+</persistence>

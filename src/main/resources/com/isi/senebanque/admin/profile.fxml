@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.isi.senebanque.controllers.admin.ProfileController"
+            stylesheets="@../../../../styles/admin/profile.css"
+            styleClass="admin-profil-container">
+
+
+
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="content-scroll">
+            <VBox spacing="30" styleClass="content-container">
+
+                
+                <HBox spacing="20" styleClass="dashboard-container">
+                    <VBox styleClass="dashboard-card">
+                        <HBox styleClass="card-header">
+                            <FontAwesomeIconView glyphName="USERS" styleClass="card-icon" />
+                            <Label text="Clients" styleClass="card-title" />
+                        </HBox>
+                        <Label fx:id="lblNombreClients" text="0" styleClass="card-value" />
+                        <Label text="clients enregistrés" styleClass="card-subtitle" />
+                    </VBox>
+
+                    <VBox styleClass="dashboard-card">
+                        <HBox styleClass="card-header">
+                            <FontAwesomeIconView glyphName="CREDIT_CARD" styleClass="card-icon" />
+                            <Label text="Comptes" styleClass="card-title" />
+                        </HBox>
+                        <Label fx:id="lblNombreComptes" text="0" styleClass="card-value" />
+                        <Label text="comptes actifs" styleClass="card-subtitle" />
+                    </VBox>
+
+                    <VBox styleClass="dashboard-card">
+                        <HBox styleClass="card-header">
+                            <FontAwesomeIconView glyphName="EXCHANGE" styleClass="card-icon" />
+                            <Label text="Transactions" styleClass="card-title" />
+                        </HBox>
+                        <Label fx:id="lblNombreTransactions" text="0" styleClass="card-value" />
+                        <Label text="transactions" styleClass="card-subtitle" />
+                    </VBox>
+
+                    <VBox styleClass="dashboard-card">
+                        <HBox styleClass="card-header">
+                            <FontAwesomeIconView glyphName="MONEY" styleClass="card-icon" />
+                            <Label text="Crédits" styleClass="card-title" />
+                        </HBox>
+                        <Label fx:id="lblNombreCredits" text="0" styleClass="card-value" />
+                        <Label text="crédits actifs" styleClass="card-subtitle" />
+                    </VBox>
+                </HBox>
+
+                
+                <VBox styleClass="section-container">
+                    <HBox styleClass="section-header">
+                        <Label text="Informations Administrateur" styleClass="section-title" />
+                        <FontAwesomeIconView glyphName="USER" styleClass="section-icon" />
+                    </HBox>
+
+                    <GridPane hgap="20" vgap="15" styleClass="info-grid">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="30" />
+                            <ColumnConstraints percentWidth="70" />
+                        </columnConstraints>
+
+                        <Label text="Identifiant :" styleClass="info-label"
+                               GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <Label fx:id="lblIdentifiant" text="-" styleClass="info-value"
+                               GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                        <Label text="Nom complet :" styleClass="info-label"
+                               GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <Label fx:id="lblNomComplet" text="-" styleClass="info-value"
+                               GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                        <Label text="Email :" styleClass="info-label"
+                               GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <Label fx:id="lblEmail" text="-" styleClass="info-value"
+                               GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                        <Label text="Rôle :" styleClass="info-label"
+                               GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                        <Label fx:id="lblRole" text="-" styleClass="info-value"
+                               GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                        <Label text="Dernière connexion :" styleClass="info-label"
+                               GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                    </GridPane>
+                </VBox>
+
+                
+                <VBox styleClass="section-container">
+                    <HBox styleClass="section-header">
+                        <Label text="Statistiques Système" styleClass="section-title" />
+                        <FontAwesomeIconView glyphName="LINE_CHART" styleClass="section-icon" />
+                    </HBox>
+
+                    <GridPane hgap="20" vgap="15" styleClass="info-grid">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="50" />
+                            <ColumnConstraints percentWidth="50" />
+                        </columnConstraints>
+
+                        <VBox styleClass="stat-box" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                            <Label text="Transactions aujourd'hui" styleClass="stat-title" />
+                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                <Label fx:id="lblTransactionsAujourdhui" text="0" styleClass="stat-value" />
+                                <Label fx:id="lblTransactionsEvolution" text="+0%" styleClass="stat-evolution positive" />
+                            </HBox>
+                        </VBox>
+
+                        <VBox styleClass="stat-box" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                            <Label text="Crédits en cours" styleClass="stat-title" />
+                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                <Label fx:id="lblCreditsEnCours" text="0" styleClass="stat-value" />
+                                <FontAwesomeIconView fx:id="iconCreditCours" glyphName="EXCLAMATION_TRIANGLE" styleClass="warning-icon" />
+                            </HBox>
+                        </VBox>
+
+                        <VBox styleClass="stat-box" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                            <Label text="Volume transactions (FCFA)" styleClass="stat-title" />
+                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                <Label fx:id="lblVolumeTransactions" text="0" styleClass="stat-value" />
+                            </HBox>
+                        </VBox>
+
+                    </GridPane>
+                </VBox>
+
+                
+                <VBox styleClass="section-container">
+                    <HBox styleClass="section-header">
+                        <Label text="Actions Administrateur" styleClass="section-title" />
+                        <FontAwesomeIconView glyphName="COG" styleClass="section-icon" />
+                    </HBox>
+
+                    <HBox spacing="15" styleClass="actions-container">
+                        <Button text="Modifier mot de passe" styleClass="action-button password-button" fx:id="btnModifierPassword" onAction="#modifierMotDePasse">
+                            <graphic>
+                                <FontAwesomeIconView glyphName="LOCK" styleClass="button-icon" />
+                            </graphic>
+                        </Button>
+
+                        <Button text="Gérer les utilisateurs" styleClass="action-button users-button" fx:id="btnGererUtilisateurs" onAction="#gererUtilisateurs">
+                            <graphic>
+                                <FontAwesomeIconView glyphName="USERS" styleClass="button-icon" />
+                            </graphic>
+                        </Button>
+
+                        <Button text="Paramètres système" styleClass="action-button settings-button" fx:id="btnParametresSysteme" onAction="#ouvrirParametresSysteme">
+                            <graphic>
+                                <FontAwesomeIconView glyphName="COGS" styleClass="button-icon" />
+                            </graphic>
+                        </Button>
+                    </HBox>
+                </VBox>
+
+                <padding>
+                    <Insets top="20" right="30" bottom="30" left="30" />
+                </padding>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

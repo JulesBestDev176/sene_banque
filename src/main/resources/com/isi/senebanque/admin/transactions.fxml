@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            stylesheets="@../../../../styles/admin/transactions.css"
+            fx:controller="com.isi.senebanque.controllers.admin.TransactionController"
+            styleClass="transactions-container">
+
+    <top>
+        <HBox styleClass="en-tete">
+            <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                <Label text="Gestion des Transactions" styleClass="titre-page">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Label>
+            </HBox>
+
+            <HBox alignment="CENTER_RIGHT" spacing="15">
+                <Button styleClass="bouton-profil">
+                    <graphic>
+                        <HBox spacing="10" alignment="CENTER">
+                            <StackPane styleClass="avatar-mini-container">
+                                <FontAwesomeIconView glyphName="USER" styleClass="avatar-mini-icon" />
+                            </StackPane>
+                            <Label fx:id="nomUtilisateurHeader" text="Admin Système" />
+                        </HBox>
+                    </graphic>
+                </Button>
+            </HBox>
+
+            <padding>
+                <Insets top="20.0" right="30.0" bottom="20.0" left="30.0" />
+            </padding>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="20" styleClass="contenu-principal">
+            <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS" styleClass="onglets-container">
+                <Tab text="Liste des Opérations" styleClass="onglet">
+                    <VBox spacing="15">
+                        <HBox spacing="10" alignment="CENTER_LEFT" styleClass="actions-liste">
+                            <TextField fx:id="rechercheField" promptText="Rechercher une transaction..." styleClass="champ-recherche" HBox.hgrow="ALWAYS" />
+                            <ComboBox fx:id="filtreStatut" promptText="Statut" styleClass="filtre-combo" />
+                            <ComboBox fx:id="filtreType" promptText="Type" styleClass="filtre-combo" />
+                            <Button fx:id="btnRafraichir" text="Rafraîchir" styleClass="bouton-action, bouton-rafraichir">
+                                <graphic>
+                                    <FontAwesomeIconView glyphName="REFRESH" styleClass="icone-bouton" />
+                                </graphic>
+                            </Button>
+                        </HBox>
+
+                        <HBox spacing="10" styleClass="statistiques-container">
+                            <VBox styleClass="stat-box">
+                                <Label text="Total Transactions" styleClass="stat-label" />
+                                <Label fx:id="totalTransactionsLabel" text="0" styleClass="stat-value" />
+                                <FontAwesomeIconView glyphName="EXCHANGE" styleClass="stat-icon" />
+                            </VBox>
+                            <VBox styleClass="stat-box">
+                                <Label text="Transactions Validées" styleClass="stat-label" />
+                                <Label fx:id="totalValideesLabel" text="0" styleClass="stat-value statut-valide-text" />
+                                <FontAwesomeIconView glyphName="CHECK_CIRCLE" styleClass="stat-icon valide-icon" />
+                            </VBox>
+                            <VBox styleClass="stat-box">
+                                <Label text="Transactions Rejetées" styleClass="stat-label" />
+                                <Label fx:id="totalRejeteesLabel" text="0" styleClass="stat-value statut-rejete-text" />
+                                <FontAwesomeIconView glyphName="TIMES_CIRCLE" styleClass="stat-icon rejete-icon" />
+                            </VBox>
+                            <VBox styleClass="stat-box">
+                                <Label text="Montant Total" styleClass="stat-label" />
+                                <Label fx:id="montantTotalLabel" text="0 FCFA" styleClass="stat-value montant-text" />
+                                <FontAwesomeIconView glyphName="MONEY" styleClass="stat-icon montant-icon" />
+                            </VBox>
+                        </HBox>
+
+                        <TableView fx:id="tableTransactions" VBox.vgrow="ALWAYS" styleClass="table-transactions">
+                            <columns>
+                                <TableColumn fx:id="colId" text="ID" prefWidth="60" />
+                                <TableColumn fx:id="colNumero" text="Numéro" prefWidth="150" />
+                                <TableColumn fx:id="colType" text="Type" prefWidth="100" />
+                                <TableColumn fx:id="colMontant" text="Montant" prefWidth="120" />
+                                <TableColumn fx:id="colDate" text="Date" prefWidth="130" />
+                                <TableColumn fx:id="colCompteSource" text="Compte Source" prefWidth="150" />
+                                <TableColumn fx:id="colStatut" text="Statut" prefWidth="100" />
+                            </columns>
+                        </TableView>
+
+                        <HBox spacing="10" alignment="CENTER_RIGHT" styleClass="pagination-container">
+                            <Label fx:id="infoPage" text="Affichage 1-10 sur 100" styleClass="info-pagination" />
+                            <Pagination fx:id="paginationTransactions" pageCount="10" maxPageIndicatorCount="5" styleClass="pagination-transactions" />
+                        </HBox>
+                    </VBox>
+                </Tab>
+
+                <Tab text="Effectuer une Transaction" styleClass="onglet">
+                    <ScrollPane fitToWidth="true" styleClass="form-scroll">
+                        <VBox spacing="25" styleClass="form-container">
+                            <Label text="Nouvelle Transaction" styleClass="form-titre">
+                                <font>
+                                    <Font name="System Bold" size="18.0" />
+                                </font>
+                            </Label>
+
+                            <GridPane hgap="20" vgap="15" styleClass="grille-form">
+                                <columnConstraints>
+                                    <ColumnConstraints percentWidth="48" />
+                                    <ColumnConstraints percentWidth="48" />
+                                </columnConstraints>
+
+                                
+                                <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                    <Label text="Type de Transaction *" styleClass="label-champ" />
+                                    <ComboBox fx:id="typeTransactionField" promptText="Sélectionnez un type" styleClass="champ-form" prefWidth="400" />
+                                </VBox>
+
+                                <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                    <Label text="Montant (FCFA) *" styleClass="label-champ" />
+                                    <HBox spacing="5" styleClass="montant-container">
+                                        <TextField fx:id="montantField" promptText="Entrez le montant" styleClass="champ-form, montant-field" HBox.hgrow="ALWAYS" />
+                                        <Label text="FCFA" styleClass="montant-currency" />
+                                    </HBox>
+                                </VBox>
+
+                                
+                                <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.columnSpan="2">
+                                    <Label text="Compte *" styleClass="label-champ" />
+                                    <ComboBox fx:id="compteField" promptText="Sélectionnez un compte" styleClass="champ-form" maxWidth="Infinity" />
+                                    <Label fx:id="infoSoldeLabel" text="Solde disponible: -" styleClass="info-solde" />
+                                </VBox>
+                            </GridPane>
+
+                            <HBox spacing="15" alignment="CENTER_RIGHT" styleClass="actions-form">
+                                <Button fx:id="btnReinitialiser" text="Réinitialiser" styleClass="bouton-secondaire">
+                                    <graphic>
+                                        <FontAwesomeIconView glyphName="REFRESH" styleClass="icone-bouton" />
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="btnEnregistrer" text="Effectuer la transaction" styleClass="bouton-primaire">
+                                    <graphic>
+                                        <FontAwesomeIconView glyphName="EXCHANGE" styleClass="icone-bouton" />
+                                    </graphic>
+                                </Button>
+                            </HBox>
+                        </VBox>
+                        <padding>
+                            <Insets top="20" right="30" bottom="30" left="30" />
+                        </padding>
+                    </ScrollPane>
+                </Tab>
+            </TabPane>
+            <padding>
+                <Insets top="20" right="30" bottom="30" left="30" />
+            </padding>
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:id="page_client"
+            prefWidth="1200" prefHeight="800" stylesheets="@../../../../styles/admin/admin.css">
+
+            <left>
+                <fx:include source="sidebar.fxml" />
+            </left>
+
+            <center>
+                <fx:include source="dashboard.fxml" />
+            </center>
+</BorderPane>

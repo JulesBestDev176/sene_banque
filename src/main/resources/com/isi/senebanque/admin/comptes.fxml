@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            stylesheets="@../../../../styles/admin/comptes.css"
+            fx:controller="com.isi.senebanque.controllers.admin.CompteController"
+            styleClass="comptes-container">
+
+    <top>
+        <HBox styleClass="en-tete">
+            <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                <Label text="Gestion des Comptes" styleClass="titre-page">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Label>
+            </HBox>
+
+            <HBox alignment="CENTER_RIGHT" spacing="15">
+                <Button styleClass="bouton-profil">
+                    <graphic>
+                        <HBox spacing="10" alignment="CENTER">
+                            <StackPane styleClass="avatar-mini-container">
+                                <FontAwesomeIconView glyphName="USER" styleClass="avatar-mini-icon" />
+                            </StackPane>
+                            <Label fx:id="nomUtilisateurHeader" text="Admin Système" />
+                        </HBox>
+                    </graphic>
+                </Button>
+            </HBox>
+
+            <padding>
+                <Insets top="20.0" right="30.0" bottom="20.0" left="30.0" />
+            </padding>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="20" styleClass="contenu-principal">
+            <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS" styleClass="onglets-container">
+                <Tab text="Liste des Comptes" styleClass="onglet">
+                    <VBox spacing="15">
+                        <HBox spacing="10" alignment="CENTER_LEFT" styleClass="actions-liste">
+                            <TextField fx:id="rechercheField" promptText="Rechercher un compte..." styleClass="champ-recherche" HBox.hgrow="ALWAYS" />
+                            <ComboBox fx:id="filtreStatut" promptText="Statut" styleClass="filtre-combo" />
+                            <ComboBox fx:id="filtreTypeCompte" promptText="Type de compte" styleClass="filtre-combo" />
+                            <Button fx:id="btnRafraichir" text="Rafraîchir" styleClass="bouton-action, bouton-rafraichir">
+                                <graphic>
+                                    <FontAwesomeIconView glyphName="REFRESH" styleClass="icone-bouton" />
+                                </graphic>
+                            </Button>
+                        </HBox>
+
+                        <TableView fx:id="tableComptes" VBox.vgrow="ALWAYS" styleClass="table-comptes">
+                            <columns>
+                                <TableColumn fx:id="colId" text="ID" prefWidth="60" />
+                                <TableColumn fx:id="colNumero" text="Numéro" prefWidth="150" />
+                                <TableColumn fx:id="colTypeCompte" text="Type" prefWidth="100" />
+                                <TableColumn fx:id="colSolde" text="Solde" prefWidth="120" />
+                                <TableColumn fx:id="colFraisBancaire" text="Frais" prefWidth="100" />
+                                <TableColumn fx:id="colDateCreation" text="Date de création" prefWidth="130" />
+                                <TableColumn fx:id="colClientId" text="Client ID" prefWidth="100" />
+                                <TableColumn fx:id="colStatut" text="Statut" prefWidth="100" />
+                                <TableColumn fx:id="colActions" text="Actions" prefWidth="120" />
+                            </columns>
+                        </TableView>
+
+                        <HBox spacing="10" alignment="CENTER_RIGHT" styleClass="pagination-container">
+                            <Label fx:id="infoPage" text="Affichage 1-10 sur 100" styleClass="info-pagination" />
+                            <Pagination fx:id="paginationComptes" pageCount="10" maxPageIndicatorCount="5" styleClass="pagination-comptes" />
+                        </HBox>
+                    </VBox>
+                </Tab>
+
+                <Tab text="Ajouter un Compte" styleClass="onglet">
+                    <ScrollPane fitToWidth="true" styleClass="form-scroll">
+                        <VBox spacing="25" styleClass="form-container">
+                            <Label text="Nouveau Compte" styleClass="form-titre">
+                                <font>
+                                    <Font name="System Bold" size="18.0" />
+                                </font>
+                            </Label>
+
+                            <GridPane hgap="20" vgap="15" styleClass="grille-form">
+                                <columnConstraints>
+                                    <ColumnConstraints percentWidth="48" />
+                                    <ColumnConstraints percentWidth="48" />
+                                </columnConstraints>
+
+                                
+                                <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                    <Label text="Type de Compte *" styleClass="label-champ" />
+                                    <ComboBox fx:id="typeCompteField" promptText="Sélectionnez un type de compte" styleClass="champ-form" prefWidth="400" />
+                                    <Label fx:id="labelFraisBancaire" text="Frais bancaires: " styleClass="info-frais" />
+                                </VBox>
+
+                                <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                    <Label text="Solde initial (FCFA) *" styleClass="label-champ" />
+                                    <TextField fx:id="soldeField" promptText="Entrez le solde initial" styleClass="champ-form" />
+                                    <Label text="Doit être supérieur aux frais bancaires" styleClass="info-contrainte" />
+                                </VBox>
+
+                                
+                                <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.columnSpan="2">
+                                    <Label text="Client *" styleClass="label-champ" />
+                                    <ComboBox fx:id="clientField" promptText="Sélectionnez un client" styleClass="champ-form" maxWidth="Infinity" />
+                                    <Label text="Le client peut avoir au maximum 2 comptes (1 épargne et 1 courant)" styleClass="info-contrainte" />
+                                </VBox>
+                            </GridPane>
+
+                            <HBox spacing="15" alignment="CENTER_RIGHT" styleClass="actions-form">
+                                <Button fx:id="btnReinitialiser" text="Réinitialiser" styleClass="bouton-secondaire">
+                                    <graphic>
+                                        <FontAwesomeIconView glyphName="REFRESH" styleClass="icone-bouton" />
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="btnEnregistrer" text="Créer le compte" styleClass="bouton-primaire">
+                                    <graphic>
+                                        <FontAwesomeIconView glyphName="SAVE" styleClass="icone-bouton" />
+                                    </graphic>
+                                </Button>
+                            </HBox>
+                        </VBox>
+                        <padding>
+                            <Insets top="20" right="30" bottom="30" left="30" />
+                        </padding>
+                    </ScrollPane>
+                </Tab>
+            </TabPane>
+            <padding>
+                <Insets top="20" right="30" bottom="30" left="30" />
+            </padding>
+        </VBox>
+    </center>
+</BorderPane>

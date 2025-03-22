@@ -1,0 +1,263 @@
+/* Styles généraux de la page clients */
+.clients-container {
+    -fx-background-color: #f5f6fa;
+}
+
+/* En-tête */
+.en-tete {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #e9ecef transparent;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.titre-page {
+    -fx-text-fill: #333333;
+}
+
+.bouton-profil {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+}
+
+.avatar-mini-container {
+    -fx-background-color: #f0f2f5;
+    -fx-background-radius: 50%;
+    -fx-min-width: 30px;
+    -fx-min-height: 30px;
+    -fx-max-width: 30px;
+    -fx-max-height: 30px;
+    -fx-alignment: center;
+}
+
+.avatar-mini-icon {
+    -fx-fill: #555555;
+    -fx-font-size: 14px;
+}
+
+/* Contenu principal */
+.contenu-principal {
+    -fx-background-color: transparent;
+}
+
+/* Styles des onglets */
+.onglets-container {
+    -fx-background-color: transparent;
+}
+
+.onglets-container .tab-header-area .tab-header-background {
+    -fx-background-color: transparent;
+}
+
+.onglets-container .tab {
+    -fx-background-color: transparent;
+    -fx-padding: 10px 15px;
+}
+
+.onglets-container .tab:selected {
+    -fx-background-color: white;
+    -fx-background-radius: 5 5 0 0;
+}
+
+.onglets-container .tab-label {
+    -fx-text-fill: #555555;
+    -fx-font-size: 14px;
+}
+
+.onglets-container .tab:selected .tab-label {
+    -fx-text-fill: #0062cc;
+    -fx-font-weight: bold;
+}
+
+.onglets-container .tab-content-area {
+    -fx-background-color: white;
+    -fx-background-radius: 0 5 5 5;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 8, 0, 0, 2);
+}
+
+/* Liste des clients */
+.actions-liste {
+    -fx-padding: 15px;
+}
+
+.champ-recherche {
+    -fx-background-color: #f0f2f5;
+    -fx-background-radius: 5px;
+    -fx-padding: 8px 15px;
+    -fx-prompt-text-fill: #888888;
+}
+
+.filtre-combo {
+    -fx-background-color: #f0f2f5;
+    -fx-background-radius: 5px;
+    -fx-padding: 7px;
+    -fx-min-width: 150px;
+}
+
+.bouton-action {
+    -fx-padding: 8px 15px;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.bouton-rafraichir {
+    -fx-background-color: #0062cc;
+    -fx-text-fill: white;
+}
+
+.bouton-rafraichir:hover {
+    -fx-background-color: #0056b3;
+}
+
+.icone-bouton {
+    -fx-fill: white;
+    -fx-font-size: 12px;
+}
+
+/* Table des clients */
+.table-clients {
+    -fx-background-color: transparent;
+    -fx-border-color: #e0e3e8;
+    -fx-border-radius: 5px;
+}
+
+.table-clients .column-header {
+    -fx-background-color: #f0f2f5;
+    -fx-padding: 10px;
+}
+
+.table-clients .column-header .label {
+    -fx-text-fill: #555555;
+    -fx-font-weight: bold;
+}
+
+.table-clients .table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #f0f2f5 transparent;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.table-clients .table-row-cell:selected {
+    -fx-background-color: #e6f2ff;
+}
+
+/* Pagination */
+.pagination-container {
+    -fx-padding: 15px;
+}
+
+.info-pagination {
+    -fx-text-fill: #666666;
+    -fx-font-size: 13px;
+}
+
+.pagination-clients .pagination-control {
+    -fx-background-color: transparent;
+}
+
+.pagination-clients .pagination-control .button {
+    -fx-background-color: #f0f2f5;
+    -fx-background-radius: 5px;
+}
+
+.pagination-clients .pagination-control .button:hover {
+    -fx-background-color: #e0e3e8;
+}
+
+.pagination-clients .pagination-control .number-button:selected {
+    -fx-background-color: #0062cc;
+    -fx-text-fill: white;
+}
+
+/* Formulaire */
+.form-scroll {
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+}
+
+.form-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.form-container {
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 8, 0, 0, 2);
+}
+
+.form-titre {
+    -fx-text-fill: #333333;
+    -fx-padding: 0 0 10 0;
+}
+
+.grille-form {
+    -fx-padding: 10px 0;
+}
+
+.label-champ {
+    -fx-text-fill: #444444;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+}
+
+.champ-form {
+    -fx-background-color: #f0f2f5;
+    -fx-background-radius: 5px;
+    -fx-padding: 8px 15px;
+    -fx-prompt-text-fill: #888888;
+}
+
+.actions-form {
+    -fx-padding: 15px 0;
+}
+
+.bouton-secondaire {
+    -fx-background-color: #e0e3e8;
+    -fx-text-fill: #555555;
+    -fx-padding: 8px 15px;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.bouton-secondaire:hover {
+    -fx-background-color: #d0d3d8;
+}
+
+.bouton-secondaire .icone-bouton {
+    -fx-fill: #555555;
+}
+
+.bouton-primaire {
+    -fx-background-color: #0062cc;
+    -fx-text-fill: white;
+    -fx-padding: 8px 15px;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.bouton-primaire:hover {
+    -fx-background-color: #0056b3;
+}
+
+/* Style pour clients avec statut "inactif" */
+.client-inactif {
+    -fx-background-color: rgba(244, 67, 54, 0.05);
+}
+
+/* Badge de statut */
+.badge-statut {
+    -fx-padding: 3px 8px;
+    -fx-background-radius: 12px;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+}
+
+.statut-actif {
+    -fx-background-color: rgba(76, 175, 80, 0.2);
+    -fx-text-fill: #4caf50;
+}
+
+.statut-inactif {
+    -fx-background-color: rgba(244, 67, 54, 0.2);
+    -fx-text-fill: #f44336;
+}

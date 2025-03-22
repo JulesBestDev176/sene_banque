@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            stylesheets="@../../../../styles/admin/dashboard.css"
+            fx:controller="com.isi.senebanque.controllers.admin.DashboardController"
+            styleClass="tableau-bord-container">
+
+    <top>
+        <HBox styleClass="en-tete">
+            <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                <Label text="Tableau de bord administrateur" styleClass="titre-page">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Label>
+            </HBox>
+
+            <HBox alignment="CENTER_RIGHT" spacing="15">
+
+
+                <Button styleClass="bouton-profil">
+                    <graphic>
+                        <HBox spacing="10" alignment="CENTER">
+                            <StackPane styleClass="avatar-mini-container">
+                                <FontAwesomeIconView glyphName="USER" styleClass="avatar-mini-icon" />
+                            </StackPane>
+                            <Label fx:id="nomUtilisateurHeader" text="Admin Système" />
+
+                        </HBox>
+                    </graphic>
+                </Button>
+            </HBox>
+
+            <padding>
+                <Insets top="20.0" right="30.0" bottom="20.0" left="30.0" />
+            </padding>
+        </HBox>
+    </top>
+
+    
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="contenu-scroll">
+            <VBox spacing="25" styleClass="contenu-principal">
+                
+                <HBox spacing="20" styleClass="cartes-apercu-container">
+                    <VBox styleClass="carte, carte-clients">
+                        <HBox alignment="CENTER_LEFT" spacing="15">
+                            <StackPane styleClass="icone-container, icone-clients-container">
+                                <FontAwesomeIconView glyphName="USERS" styleClass="icone-carte" />
+                            </StackPane>
+
+                            <VBox>
+                                <Label text="Total clients" styleClass="carte-titre" />
+                                <Label fx:id="totalClients" text="1,250" styleClass="carte-valeur" />
+
+                            </VBox>
+                        </HBox>
+                    </VBox>
+
+                    <VBox styleClass="carte, carte-comptes">
+                        <HBox alignment="CENTER_LEFT" spacing="15">
+                            <StackPane styleClass="icone-container, icone-comptes-container">
+                                <FontAwesomeIconView glyphName="CREDIT_CARD" styleClass="icone-carte" />
+                            </StackPane>
+
+                            <VBox>
+                                <Label text="Comptes actifs" styleClass="carte-titre" />
+                                <Label fx:id="comptesActifs" text="1,875" styleClass="carte-valeur" />
+
+                            </VBox>
+                        </HBox>
+                    </VBox>
+
+                    <VBox styleClass="carte, carte-transactions">
+                        <HBox alignment="CENTER_LEFT" spacing="15">
+                            <StackPane styleClass="icone-container, icone-transactions-container">
+                                <FontAwesomeIconView glyphName="EXCHANGE" styleClass="icone-carte" />
+                            </StackPane>
+
+                            <VBox>
+                                <Label text="Transactions du jour" styleClass="carte-titre" />
+                                <Label fx:id="transactionsJour" text="142" styleClass="carte-valeur" />
+
+                            </VBox>
+                        </HBox>
+                    </VBox>
+
+                    <VBox styleClass="carte, carte-credits">
+                        <HBox alignment="CENTER_LEFT" spacing="15">
+                            <StackPane styleClass="icone-container, icone-credits-container">
+                                <FontAwesomeIconView glyphName="MONEY" styleClass="icone-carte" />
+                            </StackPane>
+
+                            <VBox>
+                                <Label text="Demandes de crédit" styleClass="carte-titre" />
+                                <Label fx:id="demandesCredit" text="18" styleClass="carte-valeur" />
+                                <HBox alignment="CENTER_LEFT" spacing="5">
+                                    <Label fx:id="demandesCreditEnAttente" text="" styleClass="carte-details" />
+                                    <Label text="en attente" styleClass="carte-details"/>
+                                </HBox>
+
+                            </VBox>
+                        </HBox>
+                    </VBox>
+                </HBox>
+
+
+
+                
+                <HBox spacing="20" VBox.vgrow="ALWAYS">
+                    
+                    <VBox styleClass="carte, carte-alertes" HBox.hgrow="ALWAYS">
+                        <HBox styleClass="carte-header">
+                            <Label text="Opérations à surveiller" styleClass="carte-titre-large" />
+                            <Region HBox.hgrow="ALWAYS" />
+                        </HBox>
+
+                        <TableView fx:id="tableOperationsSuspectes" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="colDate" text="Date" prefWidth="110" />
+                                <TableColumn fx:id="colClient" text="Client" prefWidth="150" />
+                                <TableColumn fx:id="colType" text="Type" prefWidth="120" />
+                                <TableColumn fx:id="colMontant" text="Montant" prefWidth="120" />
+                                <TableColumn fx:id="colStatut" text="Statut" prefWidth="150" />
+                            </columns>
+                        </TableView>
+                    </VBox>
+
+                    
+                    <VBox styleClass="carte, carte-tickets" prefWidth="350.0">
+                        <HBox styleClass="carte-header">
+                            <Label text="Tickets récents" styleClass="carte-titre-large" />
+                            <Region HBox.hgrow="ALWAYS" />
+                        </HBox>
+
+                        <VBox fx:id="listeTickets" spacing="15" styleClass="liste-tickets">
+                            
+                        </VBox>
+                    </VBox>
+                </HBox>
+
+
+
+                <padding>
+                    <Insets top="0.0" right="30.0" bottom="30.0" left="30.0" />
+                </padding>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

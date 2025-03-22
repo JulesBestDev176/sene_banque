@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.isi.senebanque.controllers.client.CreditController"
+            stylesheets="@../../../../styles/client/credits.css"
+            styleClass="credits-container">
+
+    <top>
+        <VBox styleClass="header-section">
+            <Label text="Mes Crédits" styleClass="page-title">
+                <font>
+                    <Font name="System Bold" size="24.0" />
+                </font>
+            </Label>
+            <padding>
+                <Insets top="20.0" right="30.0" bottom="10.0" left="30.0" />
+            </padding>
+        </VBox>
+    </top>
+
+    <center>
+        <TabPane styleClass="credits-tab-pane">
+            
+            <Tab text="Mes demandes de crédit" closable="false">
+                <VBox spacing="15" styleClass="tab-content">
+                    <TableView fx:id="tableCredits" VBox.vgrow="ALWAYS" styleClass="credits-table">
+                        <columns>
+                            <TableColumn fx:id="colDateDemande" text="Date de demande" prefWidth="110" />
+                            <TableColumn fx:id="colMontant" text="Montant" prefWidth="100" />
+                            <TableColumn fx:id="colTaux" text="Taux (%)" prefWidth="80" />
+                            <TableColumn fx:id="colMensualite" text="Mensualité" prefWidth="100" />
+                            <TableColumn fx:id="colDateLimite" text="Date limite" prefWidth="110" />
+                            <TableColumn fx:id="colStatut" text="Statut" prefWidth="100" />
+                        </columns>
+                        <placeholder>
+                            <Label text="Aucune demande de crédit trouvée" />
+                        </placeholder>
+                    </TableView>
+                    <padding>
+                        <Insets top="15" right="20" bottom="20" left="20" />
+                    </padding>
+                </VBox>
+            </Tab>
+
+            
+            <Tab text="Demander un crédit" closable="false">
+                <VBox spacing="20" styleClass="tab-content">
+                    <GridPane hgap="20" vgap="15">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="30" />
+                            <ColumnConstraints percentWidth="70" />
+                        </columnConstraints>
+
+                        
+                        <Label text="Montant (FCFA) :" styleClass="form-label"
+                               GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <TextField fx:id="champMontant" promptText="Entrez le montant souhaité"
+                                   GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                        
+                        <Label text="Durée (mois) :" styleClass="form-label"
+                               GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <Slider fx:id="sliderDuree" min="6" max="60" value="24"
+                                    showTickLabels="true" showTickMarks="true"
+                                    majorTickUnit="12" minorTickCount="3"
+                                    snapToTicks="true" HBox.hgrow="ALWAYS" />
+                            <Label fx:id="lblDuree" text="24 mois" styleClass="duree-label" />
+                        </HBox>
+
+                        
+                        <Label text="Taux d'intérêt :" styleClass="form-label"
+                               GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <Label fx:id="lblTauxInteret" text="Taux: -" styleClass="taux-label"
+                               GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                        
+                        <Label text="Mensualité :" styleClass="form-label"
+                               GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                        <Label fx:id="lblMensualite" text="Mensualité: -" styleClass="mensualite-label"
+                               GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                        
+                        <Label text="Total à rembourser :" styleClass="form-label"
+                               GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                        <Label fx:id="lblTotalRembourser" text="Total: -" styleClass="total-label"
+                               GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                    </GridPane>
+
+                    
+                    <Label fx:id="lblMessageErreur" styleClass="error-message" />
+
+                    
+                    <HBox alignment="CENTER_RIGHT" spacing="15">
+                        <Button text="Soumettre la demande" styleClass="credit-button" onAction="#demanderCredit">
+                            <graphic>
+                                <FontAwesomeIconView glyphName="MONEY" styleClass="button-icon" />
+                            </graphic>
+                        </Button>
+                    </HBox>
+
+                    
+                    <VBox styleClass="info-box">
+                        <Label text="Informations sur les crédits" styleClass="info-title" />
+                        <Label text="• Le montant minimum est de 100 000 FCFA et le maximum est de 10 000 000 FCFA" styleClass="info-text" />
+                        <Label text="• La durée du crédit peut varier de 6 à 60 mois" styleClass="info-text" />
+                        <Label text="• Le taux d'intérêt varie entre 5% et 12% selon le montant et la durée" styleClass="info-text" />
+                        <Label text="• Toute demande de crédit doit être approuvée par un agent bancaire" styleClass="info-text" />
+                        <Label text="• Un crédit ne peut être accordé que si vous n'avez pas de crédit en cours" styleClass="info-text" />
+                    </VBox>
+
+                    <padding>
+                        <Insets top="20" right="30" bottom="30" left="30" />
+                    </padding>
+                </VBox>
+            </Tab>
+        </TabPane>
+    </center>
+</BorderPane>

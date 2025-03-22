@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      prefWidth="200.0"
+      stylesheets="@../../../../styles/admin/sidebar.css"
+      fx:controller="com.isi.senebanque.controllers.client.SidebarController"
+      styleClass="sidebar">
+
+    
+    <HBox alignment="CENTER_LEFT" spacing="10" styleClass="sidebar-header">
+        <Label styleClass="logo-sidebar" text="S" />
+        <Label styleClass="titre-sidebar" text="SeneBanque" />
+
+        <padding>
+            <Insets top="20.0" right="15.0" bottom="20.0" left="15.0" />
+        </padding>
+    </HBox>
+
+    
+    <VBox styleClass="profil-container">
+        <HBox alignment="CENTER_LEFT" spacing="10">
+            <StackPane styleClass="avatar-container">
+                <FontAwesomeIconView glyphName="USER" styleClass="avatar-icon" />
+            </StackPane>
+
+            <VBox spacing="2">
+                <Label fx:id="nomUtilisateur" text="Prénom Nom" styleClass="nom-utilisateur" />
+            </VBox>
+        </HBox>
+
+        <padding>
+            <Insets top="10.0" right="15.0" bottom="25.0" left="15.0" />
+        </padding>
+    </VBox>
+
+    
+    <VBox spacing="5" styleClass="menu-container">
+        <Label text="MENU PRINCIPAL" styleClass="categorie-menu" />
+
+        <Button fx:id="boutonTableauBord" styleClass="bouton-menu, bouton-menu-actif" text="Tableau de bord">
+            <graphic>
+                <FontAwesomeIconView glyphName="DASHBOARD" styleClass="icone-menu" />
+            </graphic>
+        </Button>
+
+
+
+        <Button fx:id="boutonComptes" styleClass="bouton-menu" text="Mon compte">
+            <graphic>
+                <FontAwesomeIconView glyphName="BANK" styleClass="icone-menu" />
+            </graphic>
+        </Button>
+
+        <Button fx:id="boutonTransactions" styleClass="bouton-menu" text="Opérations">
+            <graphic>
+                <FontAwesomeIconView glyphName="EXCHANGE" styleClass="icone-menu" />
+            </graphic>
+        </Button>
+
+        <Button fx:id="boutonCredits" styleClass="bouton-menu" text="Credits">
+            <graphic>
+                <FontAwesomeIconView glyphName="MONEY" styleClass="icone-menu" />
+            </graphic>
+        </Button>
+
+
+
+
+        <Button fx:id="boutonReclamations" styleClass="bouton-menu" text="Réclamations">
+            <graphic>
+                <FontAwesomeIconView glyphName="COMMENT" styleClass="icone-menu" />
+            </graphic>
+        </Button>
+
+        <Label text="PARAMÈTRES" styleClass="categorie-menu">
+            <VBox.margin>
+                <Insets top="20.0" />
+            </VBox.margin>
+        </Label>
+
+        <Button fx:id="boutonProfil" styleClass="bouton-menu" text="Mon profil">
+            <graphic>
+                <FontAwesomeIconView glyphName="USER" styleClass="icone-menu" />
+            </graphic>
+        </Button>
+
+    </VBox>
+
+    <Region VBox.vgrow="ALWAYS" />
+
+    
+    <Button fx:id="boutonDeconnexion" styleClass="bouton-deconnexion" text="Déconnexion" onAction="#btnDeconnexionOnAction">
+        <graphic>
+            <FontAwesomeIconView glyphName="SIGN_OUT" styleClass="icone-deconnexion" />
+        </graphic>
+
+        <VBox.margin>
+            <Insets top="10.0" right="15.0" bottom="20.0" left="15.0" />
+        </VBox.margin>
+    </Button>
+</VBox>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            stylesheets="@../../../../styles/client/reclamation.css"
+            fx:controller="com.isi.senebanque.controllers.client.ReclamationController"
+            styleClass="tickets-container">
+
+    <top>
+        <VBox styleClass="header-section">
+            <Label text="Mes Réclamations" styleClass="page-title">
+                <font>
+                    <Font name="System Bold" size="24.0" />
+                </font>
+            </Label>
+            <padding>
+                <Insets top="20.0" right="30.0" bottom="10.0" left="30.0" />
+            </padding>
+        </VBox>
+    </top>
+
+    <center>
+        <TabPane fx:id="tabPane" styleClass="tickets-tab-pane">
+            
+            <Tab text="Mes réclamations" closable="false">
+                <VBox spacing="15" styleClass="tab-content">
+                    <HBox spacing="10" alignment="CENTER_RIGHT">
+                        <Button fx:id="btnNouvelleDemande" text="Nouvelle réclamation" onAction="#ouvrirFormulaireNouvelleDemande" styleClass="btn-nouvelle-demande">
+                            <graphic>
+                                <FontAwesomeIconView glyphName="PLUS_CIRCLE" styleClass="button-icon" />
+                            </graphic>
+                        </Button>
+                    </HBox>
+
+                    <TableView fx:id="tableTickets" VBox.vgrow="ALWAYS" styleClass="tickets-table">
+                        <columns>
+                            <TableColumn fx:id="colId" text="N°" prefWidth="60" />
+                            <TableColumn fx:id="colSujet" text="Sujet" prefWidth="200" />
+                            <TableColumn fx:id="colDateOuverture" text="Date d'ouverture" prefWidth="130" />
+                            <TableColumn fx:id="colStatut" text="Statut" prefWidth="100" />
+                            <TableColumn fx:id="colActions" text="Actions" prefWidth="120" />
+                        </columns>
+                        <placeholder>
+                            <Label text="Aucune réclamation trouvée" />
+                        </placeholder>
+                    </TableView>
+                    <padding>
+                        <Insets top="15" right="20" bottom="20" left="20" />
+                    </padding>
+                </VBox>
+            </Tab>
+
+            
+            <Tab fx:id="tabNouvelleDemande" text="Nouvelle réclamation" closable="false">
+                <VBox spacing="20" styleClass="tab-content">
+                    <Label text="Créer une nouvelle réclamation" styleClass="form-title" />
+
+                    <GridPane hgap="15" vgap="15">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="25" />
+                            <ColumnConstraints percentWidth="75" />
+                        </columnConstraints>
+
+                        
+                        <Label text="Sujet:" styleClass="form-label"
+                               GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <TextField fx:id="champSujet" promptText="Entrez un sujet pour votre réclamation"
+                                   GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                        
+                        <Label text="Description:" styleClass="form-label"
+                               GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <TextArea fx:id="champDescription" promptText="Décrivez votre problème en détail..."
+                                  wrapText="true" prefRowCount="6"
+                                  GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    </GridPane>
+
+                    
+                    <Label fx:id="lblMessageErreur" styleClass="error-message" />
+
+                    
+                    <HBox spacing="15" alignment="CENTER_RIGHT">
+                        <Button fx:id="btnAnnuler" text="Annuler" onAction="#annulerNouvelleDemande" styleClass="btn-annuler">
+                            <graphic>
+                                <FontAwesomeIconView glyphName="TIMES" styleClass="button-icon" />
+                            </graphic>
+                        </Button>
+                        <Button fx:id="btnEnvoyer" text="Envoyer" onAction="#envoyerTicket" styleClass="btn-envoyer">
+                            <graphic>
+                                <FontAwesomeIconView glyphName="PAPER_PLANE" styleClass="button-icon" />
+                            </graphic>
+                        </Button>
+                    </HBox>
+
+                    
+                    <VBox styleClass="info-box">
+                        <Label text="Informations importantes" styleClass="info-title" />
+                        <Label text="• Votre réclamation sera traitée par notre service client dans les meilleurs délais" styleClass="info-text" />
+                        <Label text="• Vous serez notifié par email lorsque votre réclamation sera prise en charge" styleClass="info-text" />
+                        <Label text="• Pour les urgences, veuillez contacter directement notre service client au +221 800 00 00 00" styleClass="info-text" />
+                    </VBox>
+
+                    <padding>
+                        <Insets top="20" right="30" bottom="30" left="30" />
+                    </padding>
+                </VBox>
+            </Tab>
+
+            
+            <Tab fx:id="tabDetailTicket" text="Détail réclamation" closable="false">
+                <VBox spacing="20" styleClass="tab-content">
+                    <HBox alignment="CENTER_LEFT" spacing="15">
+                        <Button fx:id="btnRetour" onAction="#retourListeTickets" styleClass="btn-retour">
+                            <graphic>
+                                <FontAwesomeIconView glyphName="ARROW_LEFT" styleClass="button-icon" />
+                            </graphic>
+                        </Button>
+                        <Label text="Détail de la réclamation" styleClass="form-title" />
+                    </HBox>
+
+                    <GridPane hgap="15" vgap="15" styleClass="detail-grid">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="25" />
+                            <ColumnConstraints percentWidth="75" />
+                        </columnConstraints>
+
+                        
+                        <Label text="N° Ticket:" styleClass="detail-label"
+                               GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <Label fx:id="lblTicketId" styleClass="detail-value"
+                               GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                        
+                        <Label text="Date d'ouverture:" styleClass="detail-label"
+                               GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <Label fx:id="lblDateOuverture" styleClass="detail-value"
+                               GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                        
+                        <Label text="Statut:" styleClass="detail-label"
+                               GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <Label fx:id="lblStatut" styleClass="detail-value"
+                               GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                        
+                        <Label text="Sujet:" styleClass="detail-label"
+                               GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                        <Label fx:id="lblSujet" styleClass="detail-value"
+                               GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                        
+                        <Label text="Description:" styleClass="detail-label"
+                               GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                        <VBox styleClass="description-container"
+                              GridPane.columnIndex="1" GridPane.rowIndex="4">
+                            <Label fx:id="lblDescription" styleClass="detail-description" wrapText="true" />
+                        </VBox>
+                    </GridPane>
+
+                    <HBox spacing="15" alignment="CENTER_RIGHT">
+                        <Button fx:id="btnCloreTicket" text="Clore cette réclamation" onAction="#cloreTicket" styleClass="btn-clore"
+                                visible="false" managed="false">
+                            <graphic>
+                                <FontAwesomeIconView glyphName="CHECK_CIRCLE" styleClass="button-icon" />
+                            </graphic>
+                        </Button>
+                    </HBox>
+
+                    <padding>
+                        <Insets top="20" right="30" bottom="30" left="30" />
+                    </padding>
+                </VBox>
+            </Tab>
+        </TabPane>
+    </center>
+</BorderPane>

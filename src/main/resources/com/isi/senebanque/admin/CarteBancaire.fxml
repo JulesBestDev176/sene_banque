@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            stylesheets="@../../../../styles/admin/carteBancaire.css"
+            fx:controller="com.isi.senebanque.controllers.admin.CarteBancaireController"
+            styleClass="carte-bancaire-container">
+
+    <top>
+        <HBox styleClass="en-tete">
+            <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                <Label text="Gestion des Cartes Bancaires" styleClass="titre-page">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Label>
+            </HBox>
+
+            <HBox alignment="CENTER_RIGHT" spacing="15">
+                <Button styleClass="bouton-profil">
+                    <graphic>
+                        <HBox spacing="10" alignment="CENTER">
+                            <StackPane styleClass="avatar-mini-container">
+                                <FontAwesomeIconView glyphName="USER" styleClass="avatar-mini-icon" />
+                            </StackPane>
+                            <Label fx:id="nomUtilisateurHeader" text="Admin Système" />
+                        </HBox>
+                    </graphic>
+                </Button>
+            </HBox>
+
+            <padding>
+                <Insets top="20.0" right="30.0" bottom="20.0" left="30.0" />
+            </padding>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="20" styleClass="contenu-principal">
+            
+            <HBox spacing="15" styleClass="barre-recherche">
+                <TextField fx:id="champRecherche" promptText="Rechercher une carte..." HBox.hgrow="ALWAYS" />
+                <ComboBox fx:id="comboStatut" promptText="Statut" />
+                <Button text="Rechercher" onAction="#rechercher" styleClass="bouton-recherche">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="SEARCH" styleClass="icone-bouton" />
+                    </graphic>
+                </Button>
+                <Button text="Réinitialiser" onAction="#reinitialiserFiltres" styleClass="bouton-reinitialiser">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="REFRESH" styleClass="icone-bouton" />
+                    </graphic>
+                </Button>
+            </HBox>
+
+            
+            <TableView fx:id="tableCartes" VBox.vgrow="ALWAYS" styleClass="tableau-cartes">
+                <columns>
+                    <TableColumn fx:id="colId" text="ID" prefWidth="60" />
+                    <TableColumn fx:id="colNumero" text="Numéro de carte" prefWidth="180" />
+                    <TableColumn fx:id="colCompte" text="Compte" prefWidth="150" />
+                    <TableColumn fx:id="colDateExpiration" text="Expiration" prefWidth="100" />
+                    <TableColumn fx:id="colSolde" text="Solde" prefWidth="120" />
+                    <TableColumn fx:id="colStatut" text="Statut" prefWidth="100" />
+                    <TableColumn fx:id="colActions" text="Actions" prefWidth="120" />
+                </columns>
+            </TableView>
+
+            <padding>
+                <Insets top="20" right="30" bottom="30" left="30" />
+            </padding>
+        </VBox>
+    </center>
+</BorderPane>

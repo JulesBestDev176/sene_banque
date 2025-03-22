@@ -1,0 +1,163 @@
+/* Styles généraux */
+.carte-bancaire-container {
+    -fx-background-color: #f5f5f5;
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* En-tête */
+.en-tete {
+    -fx-background-color: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);
+    -fx-alignment: center-left;
+}
+
+.titre-page {
+    -fx-text-fill: #333;
+}
+
+.bouton-profil {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+}
+
+.bouton-profil:hover {
+    -fx-background-color: #f0f0f0;
+}
+
+.avatar-mini-container {
+    -fx-background-color: #007bff;
+    -fx-background-radius: 50%;
+    -fx-min-width: 30px;
+    -fx-min-height: 30px;
+    -fx-max-width: 30px;
+    -fx-max-height: 30px;
+    -fx-alignment: center;
+}
+
+.avatar-mini-icon {
+    -fx-fill: white;
+    -fx-font-size: 14px;
+}
+
+/* Contenu principal */
+.contenu-principal {
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 3);
+}
+
+/* Barre de recherche */
+.barre-recherche {
+    -fx-alignment: center-left;
+    -fx-padding: 10px 0;
+}
+
+.barre-recherche TextField {
+    -fx-background-color: #f5f5f5;
+    -fx-background-radius: 4px;
+    -fx-padding: 8px 12px;
+    -fx-border-color: #e1e1e1;
+    -fx-border-radius: 4px;
+}
+
+.barre-recherche ComboBox {
+    -fx-background-color: #f5f5f5;
+    -fx-background-radius: 4px;
+    -fx-padding: 7px 10px;
+    -fx-border-color: #e1e1e1;
+    -fx-border-radius: 4px;
+}
+
+.bouton-recherche, .bouton-reinitialiser {
+    -fx-background-color: #007bff;
+    -fx-text-fill: white;
+    -fx-background-radius: 4px;
+    -fx-cursor: hand;
+    -fx-padding: 8px 15px;
+}
+
+.bouton-reinitialiser {
+    -fx-background-color: #6c757d;
+}
+
+.bouton-recherche:hover {
+    -fx-background-color: #0069d9;
+}
+
+.bouton-reinitialiser:hover {
+    -fx-background-color: #5a6268;
+}
+
+.icone-bouton {
+    -fx-fill: white;
+    -fx-font-size: 12px;
+}
+
+/* Tableau des cartes bancaires */
+.tableau-cartes {
+    -fx-border-color: #e1e1e1;
+    -fx-border-radius: 4px;
+}
+
+.tableau-cartes .column-header {
+    -fx-background-color: #f8f9fa;
+    -fx-padding: 10px;
+    -fx-border-color: #e1e1e1;
+    -fx-border-width: 0 0 1 0;
+}
+
+.tableau-cartes .table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: #e1e1e1;
+    -fx-border-width: 0 0 1 0;
+}
+
+.tableau-cartes .table-row-cell:odd {
+    -fx-background-color: #f9f9f9;
+}
+
+.tableau-cartes .table-row-cell:hover {
+    -fx-background-color: #f0f7ff;
+}
+
+/* Boutons d'action */
+.bouton-activer {
+    -fx-background-color: #28a745;
+    -fx-text-fill: white;
+    -fx-background-radius: 4px;
+    -fx-cursor: hand;
+    -fx-padding: 5px 10px;
+}
+
+.bouton-desactiver {
+    -fx-background-color: #dc3545;
+    -fx-text-fill: white;
+    -fx-background-radius: 4px;
+    -fx-cursor: hand;
+    -fx-padding: 5px 10px;
+}
+
+.bouton-activer:hover {
+    -fx-background-color: #218838;
+}
+
+.bouton-desactiver:hover {
+    -fx-background-color: #c82333;
+}
+
+/* Statut de la carte */
+.statut-actif {
+    -fx-text-fill: #28a745;
+    -fx-font-weight: bold;
+}
+
+.statut-inactif {
+    -fx-text-fill: #dc3545;
+    -fx-font-weight: bold;
+}
+
+.statut-bloque {
+    -fx-text-fill: #6c757d;
+    -fx-font-weight: bold;
+}

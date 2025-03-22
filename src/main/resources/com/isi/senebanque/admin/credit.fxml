@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            stylesheets="@../../../../styles/admin/credit.css"
+            fx:controller="com.isi.senebanque.controllers.admin.CreditController"
+            styleClass="credit-container">
+
+    <top>
+        <HBox styleClass="en-tete">
+            <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                <Label text="Gestion des Crédits" styleClass="titre-page">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Label>
+            </HBox>
+
+            <HBox alignment="CENTER_RIGHT" spacing="15">
+                <Button styleClass="bouton-profil">
+                    <graphic>
+                        <HBox spacing="10" alignment="CENTER">
+                            <StackPane styleClass="avatar-mini-container">
+                                <FontAwesomeIconView glyphName="USER" styleClass="avatar-mini-icon" />
+                            </StackPane>
+                            <Label fx:id="nomUtilisateurHeader" text="Admin Système" />
+                        </HBox>
+                    </graphic>
+                </Button>
+            </HBox>
+
+            <padding>
+                <Insets top="20.0" right="30.0" bottom="20.0" left="30.0" />
+            </padding>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="20" styleClass="contenu-principal">
+            <TabPane fx:id="tabPaneCredits" VBox.vgrow="ALWAYS" styleClass="tab-pane-credits">
+                
+                <Tab fx:id="tabEnAttente" text="Crédits en attente" closable="false">
+                    <content>
+                        <VBox spacing="15">
+                            <HBox styleClass="header-section">
+                                <Label text="Liste des demandes de crédit en attente" styleClass="section-title" />
+                            </HBox>
+
+                            <TableView fx:id="tableCreditsEnAttente" VBox.vgrow="ALWAYS" styleClass="tableau-credits">
+                                <columns>
+                                    <TableColumn fx:id="colIdAttente" text="ID" prefWidth="60" />
+                                    <TableColumn fx:id="colClientAttente" text="Client" prefWidth="150" />
+                                    <TableColumn fx:id="colMontantAttente" text="Montant" prefWidth="120" />
+                                    <TableColumn fx:id="colTauxAttente" text="Taux" prefWidth="80" />
+                                    <TableColumn fx:id="colDateDemandeAttente" text="Date demande" prefWidth="120" />
+                                    <TableColumn fx:id="colMensualiteAttente" text="Mensualité" prefWidth="120" />
+                                    <TableColumn fx:id="colDateLimiteAttente" text="Date limite" prefWidth="120" />
+                                    <TableColumn fx:id="colStatutAttente" text="Statut" prefWidth="100" />
+                                    <TableColumn fx:id="colActionsAttente" text="Actions" prefWidth="150" />
+                                </columns>
+                            </TableView>
+                        </VBox>
+                    </content>
+                </Tab>
+
+                
+                <Tab fx:id="tabTousCredits" text="Tous les crédits" closable="false">
+                    <content>
+                        <VBox spacing="15">
+                            
+                            <HBox spacing="15" styleClass="barre-recherche">
+                                <TextField fx:id="champRechercheTous" promptText="Rechercher un crédit..." HBox.hgrow="ALWAYS" />
+                                <ComboBox fx:id="comboStatutTous" promptText="Statut" />
+                                <Button text="Rechercher" onAction="#rechercher" styleClass="bouton-recherche">
+                                    <graphic>
+                                        <FontAwesomeIconView glyphName="SEARCH" styleClass="icone-bouton" />
+                                    </graphic>
+                                </Button>
+                                <Button text="Réinitialiser" onAction="#reinitialiserFiltres" styleClass="bouton-reinitialiser">
+                                    <graphic>
+                                        <FontAwesomeIconView glyphName="REFRESH" styleClass="icone-bouton" />
+                                    </graphic>
+                                </Button>
+                            </HBox>
+
+                            <TableView fx:id="tableTousCredits" VBox.vgrow="ALWAYS" styleClass="tableau-credits">
+                                <columns>
+                                    <TableColumn fx:id="colIdTous" text="ID" prefWidth="50" />
+                                    <TableColumn fx:id="colClientTous" text="Client" prefWidth="150" />
+                                    <TableColumn fx:id="colMontantTous" text="Montant" prefWidth="120" />
+                                    <TableColumn fx:id="colTauxTous" text="Taux" prefWidth="80" />
+                                    <TableColumn fx:id="colDemandeTous" text="Date demande" prefWidth="120" />
+                                    <TableColumn fx:id="colMensualiteTous" text="Mensualité" prefWidth="120" />
+                                    <TableColumn fx:id="colLimiteTous" text="Date limite" prefWidth="120" />
+                                    <TableColumn fx:id="colStatutTous" text="Statut" prefWidth="100" />
+                                </columns>
+                            </TableView>
+                        </VBox>
+                    </content>
+                </Tab>
+            </TabPane>
+
+            <padding>
+                <Insets top="20" right="30" bottom="30" left="30" />
+            </padding>
+        </VBox>
+    </center>
+</BorderPane>

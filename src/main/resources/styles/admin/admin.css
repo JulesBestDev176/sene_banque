@@ -1,0 +1,5 @@
+/* Styles globaux */
+.root {
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 14px;
+}

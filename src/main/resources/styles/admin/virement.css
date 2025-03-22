@@ -1,0 +1,281 @@
+/* Styles généraux de la page virement */
+.virement-container {
+    -fx-background-color: #f5f6fa;
+}
+
+/* En-tête */
+.en-tete {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #e9ecef transparent;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.titre-page {
+    -fx-text-fill: #333333;
+}
+
+.bouton-profil {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+}
+
+.avatar-mini-container {
+    -fx-background-color: #f0f2f5;
+    -fx-background-radius: 50%;
+    -fx-min-width: 30px;
+    -fx-min-height: 30px;
+    -fx-max-width: 30px;
+    -fx-max-height: 30px;
+    -fx-alignment: center;
+}
+
+.avatar-mini-icon {
+    -fx-fill: #555555;
+    -fx-font-size: 14px;
+}
+
+/* Contenu principal */
+.contenu-principal {
+    -fx-background-color: transparent;
+}
+
+/* Formulaire */
+.form-scroll {
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+}
+
+.form-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.form-container {
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 8, 0, 0, 2);
+    -fx-padding: 25px;
+}
+
+.form-header {
+    -fx-padding: 0 0 10 0;
+}
+
+.form-icon {
+    -fx-fill: #0062cc;
+    -fx-font-size: 20px;
+}
+
+.form-titre {
+    -fx-text-fill: #333333;
+}
+
+.form-separator {
+    -fx-background-color: #e9ecef;
+    -fx-opacity: 0.7;
+}
+
+.grille-form {
+    -fx-padding: 20px 0;
+}
+
+.label-champ {
+    -fx-text-fill: #444444;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+}
+
+.champ-form {
+    -fx-background-color: #f0f2f5;
+    -fx-background-radius: 5px;
+    -fx-padding: 8px 15px;
+    -fx-prompt-text-fill: #888888;
+}
+
+/* Montant */
+.montant-container {
+    -fx-alignment: center;
+}
+
+.montant-field {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.montant-currency {
+    -fx-background-color: #ecf0f1;
+    -fx-background-radius: 0 5px 5px 0;
+    -fx-padding: 8px 15px;
+    -fx-text-fill: #7f8c8d;
+    -fx-font-weight: bold;
+    -fx-border-color: #e0e5eb;
+    -fx-border-radius: 0 5px 5px 0;
+}
+
+.info-montant {
+    -fx-text-fill: #6c757d;
+    -fx-font-size: 12px;
+    -fx-font-style: italic;
+    -fx-padding: 5px 0 0 0;
+}
+
+.info-solde {
+    -fx-text-fill: #0062cc;
+    -fx-font-size: 13px;
+    -fx-padding: 5px 0 0 0;
+    -fx-font-weight: bold;
+}
+
+.info-solde-dest {
+    -fx-text-fill: #28a745;
+    -fx-font-size: 13px;
+    -fx-padding: 5px 0 0 0;
+    -fx-font-weight: bold;
+}
+
+/* Motif */
+.motif-field {
+    -fx-font-size: 13px;
+}
+
+/* Récapitulatif */
+.confirmation-box {
+    -fx-background-color: #f8f9fa;
+    -fx-background-radius: 5px;
+    -fx-padding: 15px;
+    -fx-border-color: #e9ecef;
+    -fx-border-radius: 5px;
+}
+
+.confirmation-titre {
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-text-fill: #495057;
+}
+
+.info-icon {
+    -fx-fill: #0062cc;
+    -fx-font-size: 16px;
+}
+
+.recap-grid {
+    -fx-padding: 10px 0 0 25px;
+}
+
+.recap-label {
+    -fx-text-fill: #6c757d;
+    -fx-font-size: 13px;
+}
+
+.recap-value {
+    -fx-text-fill: #212529;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.montant-text {
+    -fx-text-fill: #17a2b8;
+}
+
+/* Boutons */
+.actions-form {
+    -fx-padding: 20px 0 0 0;
+}
+
+.bouton-secondaire {
+    -fx-background-color: #e0e3e8;
+    -fx-text-fill: #555555;
+    -fx-padding: 8px 15px;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.bouton-secondaire:hover {
+    -fx-background-color: #d0d3d8;
+}
+
+.icone-bouton-secondaire {
+    -fx-fill: #555555;
+    -fx-font-size: 12px;
+}
+
+.bouton-verification {
+    -fx-background-color: #6c757d;
+    -fx-text-fill: white;
+    -fx-padding: 8px 15px;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.bouton-verification:hover {
+    -fx-background-color: #5a6268;
+}
+
+.bouton-primaire {
+    -fx-background-color: #0062cc;
+    -fx-text-fill: white;
+    -fx-padding: 8px 15px;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.bouton-primaire:hover {
+    -fx-background-color: #0056b3;
+}
+
+.bouton-primaire:disabled {
+    -fx-background-color: #83b0e6;
+    -fx-opacity: 0.7;
+    -fx-cursor: default;
+}
+
+.icone-bouton {
+    -fx-fill: white;
+    -fx-font-size: 12px;
+}
+
+/* Styles adaptatives */
+@media screen and (max-width: 800px) {
+    .titre-page {
+        -fx-font-size: 20px;
+    }
+
+    .form-container {
+        -fx-padding: 15px;
+    }
+
+    .grille-form {
+        -fx-hgap: 10px;
+        -fx-vgap: 10px;
+    }
+
+    .bouton-primaire, .bouton-secondaire, .bouton-verification {
+        -fx-padding: 6px 12px;
+        -fx-font-size: 12px;
+    }
+}
+
+/* État des comptes similaires */
+.compte-similaire-warning {
+    -fx-text-fill: #fd7e14;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 5px 0 0 0;
+}
+
+/* Animation pour le bouton Effectuer quand activé */
+.bouton-primaire-anime {
+    -fx-effect: dropshadow(gaussian, rgba(0, 98, 204, 0.5), 10, 0, 0, 0);
+    -fx-animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        -fx-effect: dropshadow(gaussian, rgba(0, 98, 204, 0.5), 0, 0, 0, 0);
+    }
+    50% {
+        -fx-effect: dropshadow(gaussian, rgba(0, 98, 204, 0.5), 10, 0, 0, 0);
+    }
+    100% {
+        -fx-effect: dropshadow(gaussian, rgba(0, 98, 204, 0.5), 0, 0, 0, 0);
+    }
+}

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            stylesheets="@../../../../styles/client/comptes.css"
+            fx:controller="com.isi.senebanque.controllers.client.CompteController"
+            styleClass="accounts-container">
+
+    <top>
+        <VBox styleClass="header-section">
+            <HBox alignment="CENTER_LEFT">
+                <Label text="Mes Comptes Bancaires" styleClass="page-title">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Label>
+                <HBox HBox.hgrow="ALWAYS" />
+                <Label fx:id="lblNomClient" text="Prénom NOM" styleClass="client-name" />
+            </HBox>
+            <padding>
+                <Insets top="20.0" right="30.0" bottom="10.0" left="30.0" />
+            </padding>
+        </VBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="content-scroll">
+            <VBox spacing="20" styleClass="content-container">
+                
+                <VBox styleClass="accounts-section">
+                    <Label text="Aperçu des comptes" styleClass="section-title" />
+                    <Separator styleClass="section-separator" />
+
+                    <VBox fx:id="comptesContainer" spacing="20" styleClass="comptes-container">
+                        
+                    </VBox>
+                </VBox>
+
+                <padding>
+                    <Insets top="20" right="30" bottom="30" left="30" />
+                </padding>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

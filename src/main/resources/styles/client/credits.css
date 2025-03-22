@@ -1,0 +1,221 @@
+/* Style général */
+.credits-container {
+    -fx-background-color: #f5f5f5;
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* En-tête */
+.header-section {
+    -fx-background-color: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+.page-title {
+    -fx-text-fill: #333;
+}
+
+/* TabPane */
+.credits-tab-pane {
+    -fx-tab-min-width: 150px;
+}
+
+.credits-tab-pane .tab {
+    -fx-background-color: #f0f0f0;
+    -fx-padding: 8px 15px;
+}
+
+.credits-tab-pane .tab:selected {
+    -fx-background-color: white;
+    -fx-border-color: #007bff;
+    -fx-border-width: 0 0 2 0;
+}
+
+.credits-tab-pane .tab-header-area {
+    -fx-padding: 5px 0 0 5px;
+}
+
+.credits-tab-pane .tab-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.credits-tab-pane .tab:selected .tab-label {
+    -fx-text-fill: #007bff;
+}
+
+.credits-tab-pane .tab-content-area {
+    -fx-background-color: white;
+}
+
+.tab-content {
+    -fx-background-color: white;
+}
+
+/* Tableau des crédits */
+.credits-table {
+    -fx-border-color: #e9ecef;
+    -fx-border-radius: 4px;
+}
+
+.credits-table .column-header {
+    -fx-background-color: #f8f9fa;
+    -fx-padding: 10px;
+    -fx-border-color: #e1e1e1;
+    -fx-border-width: 0 0 1 0;
+}
+
+.credits-table .column-header .label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #495057;
+}
+
+.credits-table .table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: #e1e1e1;
+    -fx-border-width: 0 0 1 0;
+}
+
+.credits-table .table-row-cell:odd {
+    -fx-background-color: #f9f9f9;
+}
+
+.credits-table .table-row-cell:hover {
+    -fx-background-color: #f0f7ff;
+}
+
+.credits-table .table-row-cell .text {
+    -fx-fill: #212529;
+}
+
+/* Statuts */
+.statut-en-attente {
+    -fx-text-fill: #ffc107;
+    -fx-font-weight: bold;
+}
+
+.statut-approuve {
+    -fx-text-fill: #28a745;
+    -fx-font-weight: bold;
+}
+
+.statut-rejete {
+    -fx-text-fill: #dc3545;
+    -fx-font-weight: bold;
+}
+
+.statut-solde {
+    -fx-text-fill: #6c757d;
+    -fx-font-weight: bold;
+}
+
+/* Placeholder */
+.credits-table .placeholder .label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #6c757d;
+    -fx-padding: 20px;
+}
+
+/* Formulaire de demande de crédit */
+.form-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #495057;
+}
+
+.duree-label, .taux-label, .mensualite-label, .total-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #007bff;
+}
+
+.duree-label {
+    -fx-min-width: 80px;
+    -fx-alignment: center-right;
+}
+
+TextField {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #dee2e6;
+    -fx-border-radius: 4px;
+    -fx-padding: 8px;
+}
+
+TextField:hover {
+    -fx-border-color: #007bff;
+}
+
+/* Message d'erreur */
+.error-message {
+    -fx-text-fill: #dc3545;
+    -fx-font-size: 14px;
+    -fx-padding: 5px 0;
+}
+
+/* Slider personnalisé */
+.slider .track {
+    -fx-background-color: #dee2e6;
+    -fx-background-radius: 4px;
+    -fx-pref-height: 8px;
+}
+
+.slider .thumb {
+    -fx-background-color: #007bff;
+    -fx-background-radius: 50%;
+    -fx-pref-height: 20px;
+    -fx-pref-width: 20px;
+}
+
+.slider .thumb:hover {
+    -fx-background-color: #0056b3;
+}
+
+.slider .axis {
+    -fx-tick-label-fill: #495057;
+    -fx-tick-length: 5px;
+}
+
+.slider .axis .axis-tick-mark {
+    -fx-stroke: #495057;
+    -fx-stroke-width: 1px;
+}
+
+/* Bouton de demande de crédit */
+.credit-button {
+    -fx-background-color: #28a745;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 4px;
+    -fx-cursor: hand;
+}
+
+.credit-button:hover {
+    -fx-background-color: #218838;
+}
+
+.button-icon {
+    -fx-fill: white;
+    -fx-font-size: 14px;
+}
+
+/* Informations */
+.info-box {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #dee2e6;
+    -fx-border-radius: 4px;
+    -fx-padding: 15px;
+    -fx-spacing: 8px;
+    -fx-margin-top: 20px;
+}
+
+.info-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #495057;
+    -fx-padding: 0 0 5px 0;
+}
+
+.info-text {
+    -fx-font-size: 14px;
+    -fx-text-fill: #6c757d;
+}

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            stylesheets="@../../../../styles/client/dashboard.css"
+            fx:controller="com.isi.senebanque.controllers.client.DashboardController"
+            styleClass="dashboard-container">
+
+    <top>
+        <VBox styleClass="header-section">
+            <HBox alignment="CENTER_LEFT">
+                <Label fx:id="lblBienvenue" text="Bienvenue, Client" styleClass="welcome-label">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Label>
+                <HBox HBox.hgrow="ALWAYS" />
+
+            </HBox>
+            <padding>
+                <Insets top="20.0" right="30.0" bottom="10.0" left="30.0" />
+            </padding>
+        </VBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="content-scroll">
+            <VBox spacing="20" styleClass="content-container">
+                
+                <VBox styleClass="client-info-section">
+                    <Label text="Informations du compte" styleClass="section-title" />
+                    <Separator styleClass="section-separator" />
+
+                    <GridPane hgap="30" vgap="15" styleClass="client-info-grid">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="25" />
+                            <ColumnConstraints percentWidth="25" />
+                            <ColumnConstraints percentWidth="25" />
+                            <ColumnConstraints percentWidth="25" />
+                        </columnConstraints>
+
+                        
+                        <VBox GridPane.columnIndex="0" GridPane.rowIndex="0">
+                            <Label text="Nom complet" styleClass="info-label" />
+                            <Label fx:id="lblNomComplet" text="Prénom Nom" styleClass="info-value" />
+                        </VBox>
+
+                        
+                        <VBox GridPane.columnIndex="1" GridPane.rowIndex="0">
+                            <Label text="Nom d'utilisateur" styleClass="info-label" />
+                            <Label fx:id="lblUsername" text="username" styleClass="info-value" />
+                        </VBox>
+
+                        
+                        <VBox GridPane.columnIndex="2" GridPane.rowIndex="0">
+                            <Label text="Email" styleClass="info-label" />
+                            <Label fx:id="lblEmail" text="email@example.com" styleClass="info-value" />
+                        </VBox>
+
+                        
+                        <VBox GridPane.columnIndex="3" GridPane.rowIndex="0">
+                            <Label text="Téléphone" styleClass="info-label" />
+                            <Label fx:id="lblTelephone" text="+221 77 000 00 00" styleClass="info-value" />
+                        </VBox>
+
+                        
+                        <VBox GridPane.columnIndex="0" GridPane.rowIndex="1">
+                            <Label text="Client depuis" styleClass="info-label" />
+                            <Label fx:id="lblDateInscription" text="01/01/2023" styleClass="info-value" />
+                        </VBox>
+                    </GridPane>
+                </VBox>
+
+                
+                <VBox styleClass="cartes-section">
+                    <Label text="Mes cartes bancaires" styleClass="section-title" />
+                    <Separator styleClass="section-separator" />
+
+                    <VBox fx:id="cartesContainer" spacing="20" styleClass="cartes-container">
+                        
+                    </VBox>
+                </VBox>
+
+                <padding>
+                    <Insets top="20" right="30" bottom="30" left="30" />
+                </padding>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

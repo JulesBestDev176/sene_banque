@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            stylesheets="@../../../../styles/admin/virement.css"
+            fx:controller="com.isi.senebanque.controllers.admin.VirementController"
+            styleClass="virement-container">
+
+    <top>
+        <HBox styleClass="en-tete">
+            <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                <Label text="Effectuer un Virement" styleClass="titre-page">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Label>
+            </HBox>
+
+            <HBox alignment="CENTER_RIGHT" spacing="15">
+                <Button styleClass="bouton-profil">
+                    <graphic>
+                        <HBox spacing="10" alignment="CENTER">
+                            <StackPane styleClass="avatar-mini-container">
+                                <FontAwesomeIconView glyphName="USER" styleClass="avatar-mini-icon" />
+                            </StackPane>
+                            <Label fx:id="nomUtilisateurHeader" text="Admin Système" />
+                        </HBox>
+                    </graphic>
+                </Button>
+            </HBox>
+
+            <padding>
+                <Insets top="20.0" right="30.0" bottom="20.0" left="30.0" />
+            </padding>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="20" styleClass="contenu-principal">
+            <ScrollPane fitToWidth="true" styleClass="form-scroll">
+                <VBox spacing="25" styleClass="form-container">
+                    <HBox alignment="CENTER_LEFT" spacing="10" styleClass="form-header">
+                        <FontAwesomeIconView glyphName="EXCHANGE" styleClass="form-icon" />
+                        <Label text="Nouveau Virement" styleClass="form-titre">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Label>
+                    </HBox>
+
+                    <Separator styleClass="form-separator" />
+
+                    <GridPane hgap="20" vgap="15" styleClass="grille-form">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="48" />
+                            <ColumnConstraints percentWidth="48" />
+                        </columnConstraints>
+
+                        
+                        <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2">
+                            <Label text="Montant du virement (FCFA) *" styleClass="label-champ" />
+                            <HBox spacing="5" styleClass="montant-container">
+                                <TextField fx:id="montantField" promptText="Entrez le montant" styleClass="champ-form, montant-field" HBox.hgrow="ALWAYS" />
+                                <Label text="FCFA" styleClass="montant-currency" />
+                            </HBox>
+                            <Label text="Le montant minimum est de 1000 FCFA" styleClass="info-montant" />
+                        </VBox>
+
+                        
+                        <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                            <Label text="Compte source *" styleClass="label-champ" />
+                            <ComboBox fx:id="compteSourceField" promptText="Sélectionnez un compte" styleClass="champ-form" maxWidth="Infinity" />
+                            <Label fx:id="infoSoldeSourceLabel" text="Solde disponible: -" styleClass="info-solde" />
+                        </VBox>
+
+                        
+                        <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <Label text="Compte destination *" styleClass="label-champ" />
+                            <ComboBox fx:id="compteDestField" promptText="Sélectionnez un compte" styleClass="champ-form" maxWidth="Infinity" />
+                        </VBox>
+
+
+                    </GridPane>
+
+                    <Separator styleClass="form-separator" />
+
+                    <VBox spacing="10" styleClass="confirmation-box">
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <FontAwesomeIconView glyphName="INFO_CIRCLE" styleClass="info-icon" />
+                            <Label text="Vérification du virement" styleClass="confirmation-titre" />
+                        </HBox>
+                        <GridPane hgap="20" vgap="10" styleClass="recap-grid">
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="30" />
+                                <ColumnConstraints percentWidth="70" />
+                            </columnConstraints>
+
+                            <Label text="Type d'opération:" styleClass="recap-label" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                            <Label text="Virement" styleClass="recap-value" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                            <Label text="De:" styleClass="recap-label" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                            <Label fx:id="recapSourceLabel" text="-" styleClass="recap-value" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                            <Label text="Vers:" styleClass="recap-label" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                            <Label fx:id="recapDestLabel" text="-" styleClass="recap-value" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                            <Label text="Montant:" styleClass="recap-label" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                            <Label fx:id="recapMontantLabel" text="0 FCFA" styleClass="recap-value, montant-text" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        </GridPane>
+                    </VBox>
+
+                    <HBox spacing="15" alignment="CENTER_RIGHT" styleClass="actions-form">
+                        <Button fx:id="btnAnnuler" text="Annuler" styleClass="bouton-secondaire">
+                            <graphic>
+                                <FontAwesomeIconView glyphName="TIMES" styleClass="icone-bouton-secondaire" />
+                            </graphic>
+                        </Button>
+                        <Button fx:id="btnVerifier" text="Vérifier" styleClass="bouton-verification">
+                            <graphic>
+                                <FontAwesomeIconView glyphName="CHECK" styleClass="icone-bouton" />
+                            </graphic>
+                        </Button>
+                        <Button fx:id="btnEffectuer" text="Effectuer le virement" styleClass="bouton-primaire" disable="true">
+                            <graphic>
+                                <FontAwesomeIconView glyphName="EXCHANGE" styleClass="icone-bouton" />
+                            </graphic>
+                        </Button>
+                    </HBox>
+                </VBox>
+                <padding>
+                    <Insets top="20" right="30" bottom="30" left="30" />
+                </padding>
+            </ScrollPane>
+            <padding>
+                <Insets top="20" right="30" bottom="30" left="30" />
+            </padding>
+        </VBox>
+    </center>
+</BorderPane>

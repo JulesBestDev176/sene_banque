@@ -1,0 +1,175 @@
+/* Styles généraux */
+.tickets-container {
+    -fx-background-color: #f5f6fa;
+}
+
+/* En-tête */
+.en-tete {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #e9ecef transparent;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.titre-page {
+    -fx-text-fill: #333333;
+}
+
+.bouton-profil {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+}
+
+.avatar-mini-container {
+    -fx-background-color: #f0f2f5;
+    -fx-background-radius: 50%;
+    -fx-min-width: 30px;
+    -fx-min-height: 30px;
+    -fx-max-width: 30px;
+    -fx-max-height: 30px;
+    -fx-alignment: center;
+}
+
+.avatar-mini-icon {
+    -fx-fill: #555555;
+    -fx-font-size: 14px;
+}
+
+/* Zone principale */
+.contenu-split {
+    -fx-background-color: transparent;
+}
+
+.contenu-split .split-pane-divider {
+    -fx-background-color: #e9ecef;
+    -fx-padding: 0 1px 0 1px;
+}
+
+/* Liste des tickets */
+.liste-tickets-container {
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 2);
+}
+
+.filtres-container {
+    -fx-alignment: center;
+}
+
+.btn-rafraichir {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #dee2e6;
+    -fx-border-radius: 4px;
+}
+
+.btn-rafraichir:hover {
+    -fx-background-color: #e9ecef;
+}
+
+.button-icon-refresh {
+    -fx-fill: #495057;
+    -fx-font-size: 14px;
+}
+
+/* Tableau des tickets */
+.tickets-table {
+    -fx-background-color: transparent;
+    -fx-border-color: #e9ecef;
+    -fx-border-radius: 4px;
+}
+
+.tickets-table .column-header {
+    -fx-background-color: #f8f9fa;
+    -fx-padding: 10px;
+}
+
+.tickets-table .column-header .label {
+    -fx-text-fill: #495057;
+    -fx-font-weight: bold;
+}
+
+.tickets-table .table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #f0f2f5 transparent;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.tickets-table .table-row-cell:selected {
+    -fx-background-color: #e6f2ff;
+}
+
+/* Statuts */
+.statut-en-cours {
+    -fx-text-fill: #ffc107;
+    -fx-font-weight: bold;
+}
+
+.statut-traite {
+    -fx-text-fill: #28a745;
+    -fx-font-weight: bold;
+}
+
+.statut-clos {
+    -fx-text-fill: #6c757d;
+    -fx-font-weight: bold;
+}
+
+/* Détail du ticket */
+.detail-ticket-container {
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 2);
+}
+
+.titre-detail {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+.detail-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #495057;
+}
+
+.detail-value {
+    -fx-font-size: 14px;
+    -fx-text-fill: #212529;
+}
+
+.description-area {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #dee2e6;
+    -fx-border-radius: 4px;
+    -fx-font-size: 14px;
+}
+
+/* Boutons d'action */
+.btn-traiter {
+    -fx-background-color: #17a2b8;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 15px;
+    -fx-background-radius: 4px;
+}
+
+.btn-traiter:hover {
+    -fx-background-color: #138496;
+}
+
+.btn-clore {
+    -fx-background-color: #6c757d;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 15px;
+    -fx-background-radius: 4px;
+}
+
+.btn-clore:hover {
+    -fx-background-color: #5a6268;
+}
+
+.button-icon {
+    -fx-fill: white;
+    -fx-font-size: 14px;
+}

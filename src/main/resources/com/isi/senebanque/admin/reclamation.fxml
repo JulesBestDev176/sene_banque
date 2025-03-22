@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            stylesheets="@../../../../styles/admin/reclamation.css"
+            fx:controller="com.isi.senebanque.controllers.admin.ReclamationController"
+            styleClass="tickets-container">
+
+    <top>
+        <HBox styleClass="en-tete">
+            <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                <Label text="Gestion des Réclamations" styleClass="titre-page">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Label>
+            </HBox>
+
+            <HBox alignment="CENTER_RIGHT" spacing="15">
+                <Button styleClass="bouton-profil">
+                    <graphic>
+                        <HBox spacing="10" alignment="CENTER">
+                            <StackPane styleClass="avatar-mini-container">
+                                <FontAwesomeIconView glyphName="USER" styleClass="avatar-mini-icon" />
+                            </StackPane>
+                            <Label fx:id="nomUtilisateurHeader" text="Admin Système" />
+                        </HBox>
+                    </graphic>
+                </Button>
+            </HBox>
+
+            <padding>
+                <Insets top="20.0" right="30.0" bottom="20.0" left="30.0" />
+            </padding>
+        </HBox>
+    </top>
+
+    <center>
+        <SplitPane dividerPositions="0.65" styleClass="contenu-split">
+            
+            <VBox spacing="15" styleClass="liste-tickets-container">
+                <HBox spacing="15" styleClass="filtres-container">
+                    <TextField fx:id="champRecherche" promptText="Rechercher..." HBox.hgrow="ALWAYS" />
+                    <ComboBox fx:id="comboStatut" promptText="Statut" prefWidth="150" />
+                    <Button text="Rafraîchir" onAction="#rafraichir" styleClass="btn-rafraichir">
+                        <graphic>
+                            <FontAwesomeIconView glyphName="REFRESH" styleClass="button-icon-refresh" />
+                        </graphic>
+                    </Button>
+                </HBox>
+
+                <TableView fx:id="tableTickets" VBox.vgrow="ALWAYS" styleClass="tickets-table">
+                    <columns>
+                        <TableColumn fx:id="colId" text="N°" prefWidth="60" />
+                        <TableColumn fx:id="colDateOuverture" text="Date" prefWidth="100" />
+                        <TableColumn fx:id="colClient" text="Client" prefWidth="130" />
+                        <TableColumn fx:id="colSujet" text="Sujet" prefWidth="200" />
+                        <TableColumn fx:id="colStatut" text="Statut" prefWidth="100" />
+                        <TableColumn fx:id="colActions" text="Actions" prefWidth="150" />
+                    </columns>
+                </TableView>
+
+                <padding>
+                    <Insets top="15" right="15" bottom="15" left="15" />
+                </padding>
+            </VBox>
+
+            
+            <VBox fx:id="panneauDetail" spacing="15" styleClass="detail-ticket-container">
+                <Label text="Détail de la réclamation" styleClass="titre-detail" />
+
+                <GridPane hgap="15" vgap="10">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="30" />
+                        <ColumnConstraints percentWidth="70" />
+                    </columnConstraints>
+
+                    
+                    <Label text="N° Ticket:" styleClass="detail-label"
+                           GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <Label fx:id="lblTicketId" styleClass="detail-value"
+                           GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                    
+                    <Label text="Date d'ouverture:" styleClass="detail-label"
+                           GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <Label fx:id="lblDateOuverture" styleClass="detail-value"
+                           GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                    
+                    <Label text="Statut:" styleClass="detail-label"
+                           GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <Label fx:id="lblStatut" styleClass="detail-value"
+                           GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                    
+                    <Label text="Client:" styleClass="detail-label"
+                           GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                    <Label fx:id="lblClient" styleClass="detail-value"
+                           GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                    
+                    <Label text="Sujet:" styleClass="detail-label"
+                           GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                    <Label fx:id="lblSujet" styleClass="detail-value"
+                           GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                </GridPane>
+
+                
+                <Label text="Description:" styleClass="detail-label" />
+                <TextArea fx:id="areaDescription" styleClass="description-area"
+                          wrapText="true" editable="false" prefRowCount="8" />
+
+                
+                <HBox spacing="10" alignment="CENTER_RIGHT">
+                    <Button fx:id="btnTraiter" text="Marquer comme traité" onAction="#traiterTicket"
+                            styleClass="btn-traiter" visible="false" managed="false">
+                        <graphic>
+                            <FontAwesomeIconView glyphName="CHECK" styleClass="button-icon" />
+                        </graphic>
+                    </Button>
+                    <Button fx:id="btnClore" text="Clore la réclamation" onAction="#cloreTicket"
+                            styleClass="btn-clore" visible="false" managed="false">
+                        <graphic>
+                            <FontAwesomeIconView glyphName="TIMES" styleClass="button-icon" />
+                        </graphic>
+                    </Button>
+                </HBox>
+
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20" />
+                </padding>
+            </VBox>
+        </SplitPane>
+    </center>
+</BorderPane>

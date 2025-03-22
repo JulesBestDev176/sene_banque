@@ -1,0 +1,221 @@
+/* Style général */
+.accounts-container {
+    -fx-background-color: #f5f5f5;
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* En-tête */
+.header-section {
+    -fx-background-color: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+.page-title {
+    -fx-text-fill: #333;
+}
+
+.client-name {
+    -fx-text-fill: #007bff;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+/* Conteneur principal */
+.content-scroll {
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.content-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.content-container {
+    -fx-background-color: transparent;
+}
+
+/* Sections */
+.accounts-section {
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 3);
+    -fx-padding: 20px;
+}
+
+.section-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+.section-separator {
+    -fx-padding: 10px 0 15px 0;
+}
+
+/* Carte de compte */
+.compte-card {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-border-color: #e9ecef;
+    -fx-border-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 2);
+    -fx-padding: 20px;
+}
+
+.compte-type {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+.compte-numero {
+    -fx-font-size: 14px;
+    -fx-text-fill: #6c757d;
+}
+
+.compte-statut {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 5px 10px;
+    -fx-background-radius: 50px;
+    -fx-background-color: rgba(40, 167, 69, 0.1);
+}
+
+.solde-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #6c757d;
+    -fx-padding: 10px 0 0 0;
+}
+
+.solde-montant {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+.detail-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #6c757d;
+}
+
+.detail-value {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+.btn-transactions {
+    -fx-background-color: #007bff;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 15px;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+    -fx-alignment: center;
+}
+
+.btn-transactions:hover {
+    -fx-background-color: #0069d9;
+}
+
+/* Transactions */
+.transactions-tab-pane {
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 3);
+    -fx-padding: 20px;
+}
+
+.transactions-tab-pane .tab {
+    -fx-background-color: #f0f0f0;
+    -fx-padding: 8px 15px;
+}
+
+.transactions-tab-pane .tab:selected {
+    -fx-background-color: white;
+    -fx-border-color: #007bff;
+    -fx-border-width: 0 0 2 0;
+}
+
+.transactions-tab-pane .tab-header-area {
+    -fx-padding: 5px 0 0 5px;
+}
+
+.transactions-tab-pane .tab-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.transactions-tab-pane .tab:selected .tab-label {
+    -fx-text-fill: #007bff;
+}
+
+.filter-bar {
+    -fx-padding: 10px 0;
+}
+
+.chart-container {
+    -fx-padding: 10px 0;
+    -fx-alignment: center;
+}
+
+.transaction-chart {
+    -fx-background-color: transparent;
+}
+
+.transaction-chart .chart-series-line {
+    -fx-stroke: #007bff;
+    -fx-stroke-width: 2px;
+}
+
+.transaction-chart .chart-line-symbol {
+    -fx-background-color: #007bff, white;
+    -fx-background-insets: 0, 2;
+    -fx-background-radius: 5px;
+}
+
+.transactions-table {
+    -fx-border-color: #e9ecef;
+    -fx-border-radius: 4px;
+}
+
+.transactions-table .column-header {
+    -fx-background-color: #f8f9fa;
+    -fx-padding: 10px;
+    -fx-border-color: #e1e1e1;
+    -fx-border-width: 0 0 1 0;
+}
+
+.transactions-table .table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: #e1e1e1;
+    -fx-border-width: 0 0 1 0;
+}
+
+.transactions-table .table-row-cell:odd {
+    -fx-background-color: #f9f9f9;
+}
+
+.transactions-table .table-row-cell:hover {
+    -fx-background-color: #f0f7ff;
+}
+
+.statut-valide {
+    -fx-text-fill: #28a745;
+    -fx-font-weight: bold;
+}
+
+.statut-rejete {
+    -fx-text-fill: #dc3545;
+    -fx-font-weight: bold;
+}
+
+/* Messages */
+.no-accounts-message, .no-transactions-message {
+    -fx-font-size: 16px;
+    -fx-text-fill: #6c757d;
+    -fx-text-alignment: center;
+    -fx-padding: 30px 0;
+    -fx-alignment: center;
+}
